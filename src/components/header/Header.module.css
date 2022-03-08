@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 250px;
+}
+
+.welcome {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+
+.icon {
+    padding-left: 10px;
+}
