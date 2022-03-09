@@ -1,6 +1,7 @@
 {
   "name": "edgeconnected",
   "version": "0.1.0",
+  "homepage": "https://daneilkang.github.io/edgeconnected",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.8.1",
