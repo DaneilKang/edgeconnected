@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 import styles from "./ResidentialFleet.module.css";
 import { Audio } from 'react-loader-spinner';
 import Pagination from "../common/pagination/Pagination";
-import Dashboard from "./analytics/ResidentialAnalytics";
+import MapView from "../common/map-view/MapView";
+// import Dashboard from "./analytics/ResidentialAnalytics";
 
-const baseURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/demoapi";
+const baseURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-residential-fleet";
 
 function ResidentialFleet ({searchQuery}) {
     const [lists, setLists] = useState([]);
@@ -59,6 +60,9 @@ function ResidentialFleet ({searchQuery}) {
             />
         </div> :
         <div>
+            <div>
+                <MapView />
+            </div>
             <div className={styles.table_wrapper}>
                 <table className={styles.list_table}>
                     <thead className={styles.table_head}>
@@ -75,19 +79,19 @@ function ResidentialFleet ({searchQuery}) {
                     </thead>
                     <tbody className={styles.table_body}>
                     {
-                        filteredLists.map((list) => (
-                            <tr key={list.id}>
+                        filteredLists.map((list,index) => (
+                            <tr key={index}>
                                 <td className={styles.list_name}>
                                     <input type="checkbox" name="performance-check" />
                                     Performance Check
                                 </td>
-                                <td>Customer</td>
-                                <td>Site Address</td>
+                                <td>{list.customer}</td>
+                                <td>{list.site_address}</td>
                                 <td>Device</td>
                                 <td>Alert</td>
                                 <td>Last Activity</td>
-                                <td>Partner</td>
-                                <td>Installer</td>
+                                <td>{list.partners}</td>
+                                <td>{list.installers}</td>
                             </tr>
                         ))
                     }
