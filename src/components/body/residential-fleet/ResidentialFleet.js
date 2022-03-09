@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./ResidentialFleet.module.css";
 import { Audio } from 'react-loader-spinner';
 import Pagination from "../common/pagination/Pagination";
+import Dashboard from "./analytics/ResidentialAnalytics";
 
 const baseURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/demoapi";
 
@@ -93,9 +94,6 @@ function ResidentialFleet ({searchQuery}) {
                     </tbody>
                 </table>
             
-            </div>
-            <div>
-                <ResidentialFleet/>
             </div>
             <div className={styles.pagination}>
                 <div>&nbsp;</div>
