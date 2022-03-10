@@ -68,7 +68,7 @@ function ResidentialFleet ({searchQuery}) {
                 <table className={styles.list_table}>
                     <thead className={styles.table_head}>
                         <tr>
-                            <th>Performance Check</th>
+                            <th className={styles.list_performance_check}>Performance<br/>Check</th>
                             <th>Customer</th>
                             <th>Site Address</th>
                             <th>Device</th>
@@ -78,13 +78,12 @@ function ResidentialFleet ({searchQuery}) {
                             <th>Installer</th>
                         </tr>
                     </thead>
-                    <tbody className={styles.table_body}>
+                    <tbody>
                     {
                         filteredLists.map((list,index) => (
-                            <tr key={index}>
-                                <td className={styles.list_name}>
+                            <tr key={index} className={styles.table_body}>
+                                <td className={styles.list_performance_check}>
                                     <input type="checkbox" name="performance-check" />
-                                    Performance Check
                                 </td>
                                 <td>{list.customer}</td>
                                 <td>{list.site_address}</td>
@@ -101,14 +100,13 @@ function ResidentialFleet ({searchQuery}) {
             
             </div>
             <div className={styles.pagination}>
-                <div>&nbsp;</div>
+                
                 <div className={styles.items_per_page}>
                     Items per page: {listsPerPage}
                 </div>
                 <div className={styles.page_info}>
                     {`${indexOfFirstList + 1} - ${currentPage * listsPerPage} of ${lists.length}`}
                 </div>
-                
                 <div className={styles.pagination_nav}>
                     <Pagination
                         listsPerPage={listsPerPage}
