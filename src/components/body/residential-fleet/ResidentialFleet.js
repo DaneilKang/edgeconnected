@@ -6,7 +6,8 @@ import Pagination from "../common/pagination/Pagination";
 import MapView from "../common/map-view/MapView";
 // import Dashboard from "./analytics/ResidentialAnalytics";
 
-const baseURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-residential-fleet";
+// const baseURL = "https://imq13bo8qi.execute-api.ap-southeast-2.amazonaws.com/get-residential-fleet"
+const baseURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-residential-fleet"
 
 function ResidentialFleet ({searchQuery}) {
     const [lists, setLists] = useState([]);
@@ -87,7 +88,7 @@ function ResidentialFleet ({searchQuery}) {
                                 </td>
                                 <td>{list.customer}</td>
                                 <td>{list.site_address}</td>
-                                <td>Device</td>
+                                <td>{list.solar} {list.battery}</td>
                                 <td>Alert</td>
                                 <td>Last Activity</td>
                                 <td>{list.partners}</td>

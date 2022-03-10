@@ -24,7 +24,7 @@ function Header() {
     return (
         <nav className={styles.container}>
             <div className={styles.logo}>
-                <img src='/img/edge-logo.png' width="250px"/>
+                <img src='https://edgeconnected.com/manage/assets/images/pages/edge-logo.png' width="230px"/>
             </div>
             <div className={styles.welcome}>
                 <div className={styles.item}>

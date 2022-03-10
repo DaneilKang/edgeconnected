@@ -1,5 +1,5 @@
 import React from 'react'
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '100%',
@@ -14,7 +14,7 @@ const center = {
 function MapView() {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyBAbEzrT_BLvb1TwtUpr1LFXXIDCC9pxrQ"
+    googleMapsApiKey: process.env.GOOGLE_MAP_API_KEY
   })
 
   const [map, setMap] = React.useState(null)
@@ -33,11 +33,13 @@ function MapView() {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={10}
+        // zoom={10}
         onLoad={onLoad}
         onUnmount={onUnmount}
+        defaultZoom={8}
+        defaultCenter={{ lat: -34.397, lng: 150.644 }}
       >
-        { /* Child components, such as markers, info windows, etc. */ }
+       {<Marker position={{ lat: -34.397, lng: 150.644 }} />}
         <></>
       </GoogleMap>
   ) : <></>
