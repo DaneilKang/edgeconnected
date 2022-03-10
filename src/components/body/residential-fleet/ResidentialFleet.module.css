@@ -54,6 +54,11 @@ th, td {
     width: 80px;
 }
 
+.device {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .loading_spinner {
     position: absolute;
     text-align: center;

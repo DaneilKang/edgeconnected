@@ -87,9 +87,19 @@ function ResidentialFleet ({searchQuery}) {
                                 </td>
                                 <td>{list.customer}</td>
                                 <td>{list.site_address}</td>
-                                <td>{list.solar} {list.battery}</td>
-                                <td>Alert</td>
-                                <td>Last Activity</td>
+                                <td>
+                                    <div className={styles.device}>
+                                        
+                                        <img src="/img/resi-edgeiq-gray.svg" width="25px" height="25px"/>
+                                        <img src="/img/resi-monitor-orange.svg" width="25px" height="25px"/>
+                                        <img src={list.solar === 1 ? "/img/resi-solar-blue.svg" : "/img/resi-solar-orange.svg"} width="25px" height="25px"/>
+                                        <img src={list.battery === 1 ? "/img/resi-battery-blue.svg" : "/img/resi-battery-gray.svg"} width="25px" height="25px"/>
+                                        <img src="/img/resi-load-gray.svg" width="25px" height="25px"/>
+                                        
+                                    </div>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
                                 <td>{list.partners}</td>
                                 <td>{list.installers}</td>
                             </tr>
