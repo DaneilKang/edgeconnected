@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/edgeconnected/static/css/main.1758935a.css",
-    "main.js": "/edgeconnected/static/js/main.1c14c075.js",
+    "main.css": "/edgeconnected/static/css/main.39a69f4c.css",
+    "main.js": "/edgeconnected/static/js/main.93407ff0.js",
     "static/js/787.9d30bf70.chunk.js": "/edgeconnected/static/js/787.9d30bf70.chunk.js",
     "index.html": "/edgeconnected/index.html",
-    "main.1758935a.css.map": "/edgeconnected/static/css/main.1758935a.css.map",
-    "main.1c14c075.js.map": "/edgeconnected/static/js/main.1c14c075.js.map",
+    "main.39a69f4c.css.map": "/edgeconnected/static/css/main.39a69f4c.css.map",
+    "main.93407ff0.js.map": "/edgeconnected/static/js/main.93407ff0.js.map",
     "787.9d30bf70.chunk.js.map": "/edgeconnected/static/js/787.9d30bf70.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1758935a.css",
-    "static/js/main.1c14c075.js"
+    "static/css/main.39a69f4c.css",
+    "static/js/main.93407ff0.js"
   ]
 }
