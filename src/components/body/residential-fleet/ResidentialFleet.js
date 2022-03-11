@@ -53,9 +53,7 @@ function ResidentialFleet ({searchQuery}) {
 
     /*** Conver timestamp to date & calculate how many days before to current date **/
     const currentDateTime = new Date();
-    
-     // One day Time in ms (milliseconds)
-    const one_day = 1000 * 60 * 60 * 24;
+    const one_hour = 1000 * 60 * 60;
          
      // To Calculate the result in milliseconds and then converting into days
     //  var Result = Math.round(currentDateTime.getTime() - set_date.getTime()) / (one_day);
@@ -104,6 +102,7 @@ function ResidentialFleet ({searchQuery}) {
                                     <div className={styles.device}>
                                         
                                         <img src="img/resi-edgeiq-gray.svg" width="25px" height="25px"/>
+                                        {list.device}
                                         <img src="img/resi-monitor-orange.svg" width="25px" height="25px"/>
                                         <img src={list.solar === 1 ? "img/resi-solar-blue.svg" : "img/resi-solar-orange.svg"} width="25px" height="25px"/>
                                         <img src={list.battery === 1 ? "img/resi-battery-blue.svg" : "img/resi-battery-gray.svg"} width="25px" height="25px"/>
@@ -115,9 +114,20 @@ function ResidentialFleet ({searchQuery}) {
                                     {
                                         list.devices.length > 0 &&
                                             list.devices.map(device=>(
-                                                Math.floor(Math.round(currentDateTime.getTime() - new Date((device.last_received_packet) * 1000).getTime()) / one_day) === 0
-                                                ? <div></div>
-                                                : <div className={styles.alert}>{device.serial_number} {Math.floor(Math.round(currentDateTime.getTime() - new Date((device.last_received_packet) * 1000).getTime()) / one_day)} day(s) offilne</div>
+                                                Math.floor(Math.round(currentDateTime.getTime() - new Date((device.last_received_packet) * 1000).getTime()) / one_hour) > 24
+                                                ? <div className={styles.alert}>
+                                                    {device.serial_number} {Math.floor(Math.round(currentDateTime.getTime() - new Date((device.last_received_packet) * 1000).getTime()) / one_hour / 24)} day(s) offline
+                                                </div>
+                                                : <div>
+                                                    {
+                                                        Math.floor(Math.round(currentDateTime.getTime() - new Date((device.last_received_packet) * 1000).getTime()) / one_hour) === 0
+                                                        ? <div></div>
+                                                        : <div className={styles.alert}>
+                                                            {device.serial_number} {Math.floor(Math.round(currentDateTime.getTime() - new Date((device.last_received_packet) * 1000).getTime()) / one_hour)} hour(s) offilne
+                                                        </div>
+                                                    }
+                                                </div>
+                                                
                                             ))        
                                     }
                                 </td>
