@@ -50,23 +50,15 @@ function ResidentialFleet ({searchQuery}) {
     // Change page with pagination
     const pagenate = (pageNumber) => setCurrentPage(pageNumber);
 
-
-    /*** Conver timestamp to date & calculate how many days before to current date **/
     const currentDateTime = new Date();
     const one_hour = 1000 * 60 * 60;
-         
-     // To Calculate the result in milliseconds and then converting into days
-    //  var Result = Math.round(currentDateTime.getTime() - set_date.getTime()) / (one_day);
-       
-     // To remove the decimals from the (Result) resulting days value
-    //  var Final_Result = Math.floor(Result);
 
     return (
         isLoading ? 
         <div className={styles.loading_spinner}>
             <Audio
-                height="100"
-                width="100"
+                height="80"
+                width="80"
                 color="grey"
                 ariaLabel="loading"
             />
@@ -113,22 +105,23 @@ function ResidentialFleet ({searchQuery}) {
                                 <td>
                                     {
                                         list.devices.length > 0 &&
-                                            list.devices.map(device=>(
-                                                Math.floor(Math.round(currentDateTime.getTime() - new Date((device.last_received_packet) * 1000).getTime()) / one_hour) > 24
-                                                ? <div className={styles.alert}>
-                                                    {device.serial_number} {Math.floor(Math.round(currentDateTime.getTime() - new Date((device.last_received_packet) * 1000).getTime()) / one_hour / 24)} day(s) offline
-                                                </div>
-                                                : <div>
-                                                    {
-                                                        Math.floor(Math.round(currentDateTime.getTime() - new Date((device.last_received_packet) * 1000).getTime()) / one_hour) === 0
-                                                        ? <div></div>
-                                                        : <div className={styles.alert}>
-                                                            {device.serial_number} {Math.floor(Math.round(currentDateTime.getTime() - new Date((device.last_received_packet) * 1000).getTime()) / one_hour)} hour(s) offilne
-                                                        </div>
-                                                    }
-                                                </div>
-                                                
-                                            ))        
+                                            list.devices.map(device=>
+                                                (
+                                                    Math.floor(Math.round(currentDateTime.getTime() - new Date((device.last_received_packet) * 1000).getTime()) / one_hour) > 24
+                                                    ? <div className={styles.alert}>
+                                                        {device.serial_number} {Math.floor(Math.round(currentDateTime.getTime() - new Date((device.last_received_packet) * 1000).getTime()) / one_hour / 24)} day(s) offline
+                                                    </div>
+                                                    : <div>
+                                                        {
+                                                            Math.floor(Math.round(currentDateTime.getTime() - new Date((device.last_received_packet) * 1000).getTime()) / one_hour) === 0
+                                                            ? <div></div>
+                                                            : <div className={styles.alert}>
+                                                                {device.serial_number} {Math.floor(Math.round(currentDateTime.getTime() - new Date((device.last_received_packet) * 1000).getTime()) / one_hour)} hour(s) offilne
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                )
+                                            )        
                                     }
                                 </td>
                                 <td>

@@ -8,27 +8,34 @@ const Pagination = ({ listsPerPage, totalLists, pagenate, currentPage}) => {
     }
     
     return (
-        <div>
-            {/* <ul className="pagination">
-                {pageNumbers.map(number => (
-                    <li key={number} className="page-item">
-                        <a href="!#" className="page-link" onClick={() => pagenate(number)}>
-                            {number}
-                        </a>
-                    </li>
-                ))}
-            </ul> */}
+        <div className="narrows1">
             {currentPage === 1 ? 
-            "|< <" : 
+            <span style={{color:"lightgray"}}>
+                <span style={{padding:"0 10px"}}>
+                    <i class="fa-solid fa-angles-left"></i>
+                </span>
+                <span style={{padding:"0 10px"}}>
+                    <i class="fa-solid fa-angle-left"></i>
+                </span>
+            </span> 
+            : 
             <span>
-                <a href="#" onClick={() => pagenate(1)}>&lt;&lt;</a>&nbsp;
-                <a href="#" onClick={() => pagenate(currentPage - 1)}>&lt;</a>&nbsp;
+                <span style={{padding:"0 10px"}}><a href="#" onClick={() => pagenate(1)}><i class="fa-solid fa-angles-left"></i></a></span>
+                <span style={{padding:"0 10px"}}><a href="#" onClick={() => pagenate(currentPage - 1)}><i class="fa-solid fa-angle-left"></i></a></span>
             </span>}
             {currentPage === (totalLists / listsPerPage) ? 
-            "> >|" :
+            <span style={{color:"lightgray"}}>
+                <span style={{padding:"0 10px"}}>
+                    <i class="fa-solid fa-angle-right"></i>
+                </span>
+                <span style={{padding:"0 10px"}}>
+                    <i class="fa-solid fa-angles-right"></i>
+                </span>
+            </span>
+             :
             <span>
-                <a href="#" onClick={() => pagenate(currentPage + 1)}>&gt;</a>&nbsp;
-                <a href="#" onClick={() => pagenate(totalLists / listsPerPage)}>&gt;&gt;</a>
+                <span style={{padding:"0 10px"}}><a href="#" onClick={() => pagenate(currentPage + 1)}><i class="fa-solid fa-angle-right"></i></a></span>
+                <span style={{padding:"0 10px"}}><a href="#" onClick={() => pagenate(totalLists / listsPerPage)}><i class="fa-solid fa-angles-right"></i></a></span>
             </span>
             }
         </div>

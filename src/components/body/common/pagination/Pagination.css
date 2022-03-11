@@ -1,0 +1,6 @@
+.narrows {
+    width: 200px;
+    display: inline;
+    justify-content: space-evenly;
+    align-items: center;
+}
