@@ -50,6 +50,19 @@ function ResidentialFleet ({searchQuery}) {
     // Change page with pagination
     const pagenate = (pageNumber) => setCurrentPage(pageNumber);
 
+
+    /*** Conver timestamp to date & calculate how many days before to current date **/
+    const currentDateTime = new Date();
+    
+     // One day Time in ms (milliseconds)
+    const one_day = 1000 * 60 * 60 * 24;
+         
+     // To Calculate the result in milliseconds and then converting into days
+    //  var Result = Math.round(currentDateTime.getTime() - set_date.getTime()) / (one_day);
+       
+     // To remove the decimals from the (Result) resulting days value
+    //  var Final_Result = Math.floor(Result);
+
     return (
         isLoading ? 
         <div className={styles.loading_spinner}>
@@ -90,16 +103,30 @@ function ResidentialFleet ({searchQuery}) {
                                 <td>
                                     <div className={styles.device}>
                                         
-                                        <img src="/img/resi-edgeiq-gray.svg" width="25px" height="25px"/>
-                                        <img src="/img/resi-monitor-orange.svg" width="25px" height="25px"/>
-                                        <img src={list.solar === 1 ? "/img/resi-solar-blue.svg" : "/img/resi-solar-orange.svg"} width="25px" height="25px"/>
-                                        <img src={list.battery === 1 ? "/img/resi-battery-blue.svg" : "/img/resi-battery-gray.svg"} width="25px" height="25px"/>
-                                        <img src="/img/resi-load-gray.svg" width="25px" height="25px"/>
+                                        <img src="img/resi-edgeiq-gray.svg" width="25px" height="25px"/>
+                                        <img src="img/resi-monitor-orange.svg" width="25px" height="25px"/>
+                                        <img src={list.solar === 1 ? "img/resi-solar-blue.svg" : "img/resi-solar-orange.svg"} width="25px" height="25px"/>
+                                        <img src={list.battery === 1 ? "img/resi-battery-blue.svg" : "img/resi-battery-gray.svg"} width="25px" height="25px"/>
+                                        <img src="img/resi-load-gray.svg" width="25px" height="25px"/>
                                         
                                     </div>
                                 </td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
+                                <td>
+                                    {
+                                        list.devices.length > 0 &&
+                                            list.devices.map(device=>(
+                                                Math.floor(Math.round(currentDateTime.getTime() - new Date((device.last_received_packet) * 1000).getTime()) / one_day) === 0
+                                                ? <div></div>
+                                                : <div className={styles.alert}>{device.serial_number} {Math.floor(Math.round(currentDateTime.getTime() - new Date((device.last_received_packet) * 1000).getTime()) / one_day)} day(s) offilne</div>
+                                            ))        
+                                    }
+                                </td>
+                                <td>
+                                    <div className={styles.last_activity}>
+                                        <div>Desktop Login:Never</div>
+                                        <div>App Login:Never</div>
+                                    </div>
+                                </td>
                                 <td>{list.partners}</td>
                                 <td>{list.installers}</td>
                             </tr>

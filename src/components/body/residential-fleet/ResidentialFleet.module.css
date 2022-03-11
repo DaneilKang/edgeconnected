@@ -59,6 +59,15 @@ th, td {
     justify-content: space-evenly;
 }
 
+.alert {
+    color: red;
+    font-size: 0.7rem;
+}
+
+.last_activity {
+    font-size: 0.7rem;
+}
+
 .loading_spinner {
     position: absolute;
     text-align: center;
