@@ -6,7 +6,6 @@ import Pagination from "../common/pagination/Pagination";
 import MapView from "../common/map-view/MapView";
 // import Dashboard from "./analytics/ResidentialAnalytics";
 
-// const baseURL = "https://imq13bo8qi.execute-api.ap-southeast-2.amazonaws.com/get-residential-fleet"
 const baseURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-residential-fleet"
 
 function ResidentialFleet ({searchQuery}) {
