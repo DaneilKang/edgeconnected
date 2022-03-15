@@ -14,7 +14,7 @@ export default function DrawNav () {
                         <li id='list-title'>FLEET VIEW</li>
                         <li><a href="#">Commercial Fleet</a></li>
                         <li><a href="#">Advanced Fleet</a></li>
-                        <li><Link to="residential-fleet">Residential Fleet</Link></li>
+                        <li><Link to="/residential-fleet">Residential Fleet</Link></li>
                         <li id='list-title'>DEVICE MANAGEMENT</li>
                         <li><a href="#">Register Device</a></li>
                         <li><a href="#">Unassigned Device</a></li>

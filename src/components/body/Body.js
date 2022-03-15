@@ -3,6 +3,7 @@ import ResidentialFleet from "./residential-fleet/ResidentialFleet";
 import styles from './Body.module.css';
 import PartnerManagement from './partner-management/PartnerManagement';
 import { Route, Routes } from 'react-router-dom';
+import Home from './home/Home';
 // import DoughnutChart from "./residential-fleet/analytics/DoughnutChart";
 // import DashBoard from "./residential-fleet/analytics/Dashboard";
 
@@ -12,6 +13,7 @@ function Body () {
             <Routes>
                     <Route path='partner-management' element={<PartnerManagement/>}/>
                     <Route path='residential-fleet' element={<ResidentialFleet/>}/>
+                    <Route path='/' element={<Home/>} />
             </Routes>
             {/* <DoughnutChart /> */}
             {/* <DashBoard /> */}
