@@ -1,15 +1,15 @@
 {
-  "files": {
-    "main.css": "/edgeconnected/static/css/main.6cd80412.css",
-    "main.js": "/edgeconnected/static/js/main.7a586a53.js",
-    "static/js/787.9d30bf70.chunk.js": "/edgeconnected/static/js/787.9d30bf70.chunk.js",
-    "index.html": "/edgeconnected/index.html",
-    "main.6cd80412.css.map": "/edgeconnected/static/css/main.6cd80412.css.map",
-    "main.7a586a53.js.map": "/edgeconnected/static/js/main.7a586a53.js.map",
-    "787.9d30bf70.chunk.js.map": "/edgeconnected/static/js/787.9d30bf70.chunk.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.6cd80412.css",
-    "static/js/main.7a586a53.js"
-  ]
+  "main.css": "/edgeconnected/static/css/main.312ef0cb.chunk.css",
+  "main.js": "/edgeconnected/static/js/main.5691c934.chunk.js",
+  "main.js.map": "/edgeconnected/static/js/main.5691c934.chunk.js.map",
+  "static/js/1.fbd0924d.chunk.js": "/edgeconnected/static/js/1.fbd0924d.chunk.js",
+  "static/js/1.fbd0924d.chunk.js.map": "/edgeconnected/static/js/1.fbd0924d.chunk.js.map",
+  "static/js/2.c4aefaba.chunk.js": "/edgeconnected/static/js/2.c4aefaba.chunk.js",
+  "static/js/2.c4aefaba.chunk.js.map": "/edgeconnected/static/js/2.c4aefaba.chunk.js.map",
+  "runtime~main.js": "/edgeconnected/static/js/runtime~main.d0471a57.js",
+  "runtime~main.js.map": "/edgeconnected/static/js/runtime~main.d0471a57.js.map",
+  "static/css/main.312ef0cb.chunk.css.map": "/edgeconnected/static/css/main.312ef0cb.chunk.css.map",
+  "index.html": "/edgeconnected/index.html",
+  "precache-manifest.966df2b44abca2a22b24e48fe6ea0ebc.js": "/edgeconnected/precache-manifest.966df2b44abca2a22b24e48fe6ea0ebc.js",
+  "service-worker.js": "/edgeconnected/service-worker.js"
 }
