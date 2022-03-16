@@ -92,9 +92,9 @@ function ResidentialFleet ({searchQuery}) {
                                 <td>
                                     <div className={styles.device}>
                                         
-                                        <img src="img/resi-edgeiq-gray.svg" width="25px" height="25px"/>
+                                        <img src={list.has_eiq === 1 ? "img/resi-edgeiq-blue.svg" : "img/resi-edgeiq-gray.svg"} width="25px" height="25px"/>
                                         {list.device}
-                                        <img src="img/resi-monitor-orange.svg" width="25px" height="25px"/>
+                                        <img src={list.has_energymonitor === 1 ? "img/resi-monitor-blue.svg" : "img/resi-monitor-orange.svg"} width="25px" height="25px"/>
                                         <img src={list.solar === 1 ? "img/resi-solar-blue.svg" : "img/resi-solar-orange.svg"} width="25px" height="25px"/>
                                         <img src={list.battery === 1 ? "img/resi-battery-blue.svg" : "img/resi-battery-gray.svg"} width="25px" height="25px"/>
                                         <img src={list.has_load === 1 ? "img/resi-load-blue.svg" : "img/resi-load-gray.svg"} width="25px" height="25px"/>
