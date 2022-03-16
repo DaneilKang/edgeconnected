@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "1a835acc109381dcbd4c",
+    "revision": "9e22bd1cf5c3fecb04c2",
     "url": "/edgeconnected/static/css/main.32980aff.chunk.css"
   },
   {
-    "revision": "1a835acc109381dcbd4c",
-    "url": "/edgeconnected/static/js/main.1a835acc.chunk.js"
+    "revision": "9e22bd1cf5c3fecb04c2",
+    "url": "/edgeconnected/static/js/main.9e22bd1c.chunk.js"
   },
   {
     "revision": "128fd6128b9459c5ab86",
@@ -64,7 +64,7 @@ self.__precacheManifest = [
     "url": "/edgeconnected/static/media/resi-battery-orange.550d15b1.svg"
   },
   {
-    "revision": "4c5d1107d8c10a911467ad11dbcecc3a",
+    "revision": "7fb2dac001c5e313f36224574a660f22",
     "url": "/edgeconnected/index.html"
   }
 ];
