@@ -137,8 +137,8 @@ function ResidentialFleet ({searchQuery}) {
                                 </td>
                                 <td>
                                     <div className={styles.last_activity}>
-                                        <div>Desktop Login:{list.last_accessed_desktop === null ? "Never" : getTimestampToRealTime(list.last_accessed_desktop) + " ago"}</div>
-                                        <div>App Login:Never{list.last_accessed_app === null ? "Never" : getTimestampToRealTime(list.last_accessed_app) + " ago"}</div>
+                                        <div>Desktop Login: {list.last_accessed_desktop === null ? "Never" : getTimestampToRealTime(list.last_accessed_desktop) + " ago"}</div>
+                                        <div>App Login: {list.last_accessed_app === null ? "Never" : getTimestampToRealTime(list.last_accessed_app) + " ago"}</div>
                                     </div>
                                 </td>
                                 <td>{list.partners}</td>

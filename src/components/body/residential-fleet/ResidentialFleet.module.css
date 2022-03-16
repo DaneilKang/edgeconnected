@@ -7,9 +7,7 @@ th, td {
     width: auto;
     min-width: 0;
     max-width: 200px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: wrap;
+    white-space: pre-wrap;
 }
 
 .table_head, .table_body {
@@ -25,6 +23,7 @@ th, td {
 
 .table_body {
     border-bottom: 1px solid lightgray;
+    
 }
 
 .table_wrapper {
@@ -50,8 +49,9 @@ th, td {
     position: sticky;
     text-overflow: ellipsis;
     overflow: hidden;
-    white-space: normal;
+    white-space: pre-wrap;
     width: 80px;
+    font-size: 0.5rem;
 }
 
 .device {
