@@ -102,22 +102,10 @@ export default function PartnerList({setTotalPartnerCount, searchQuery}) {
                                     <td>{partner.installers}</td>
                                     <td>{partner.users}</td>
                                     {
-                                        deviceTypeLists.map(device => (
+                                        deviceTypeLists.map((device) => (
                                             <td>
-                                                <td>
-                                                    {
-                                                        partner.stock_devices.map((item) =>(
-                                                            item[0] === device ? item[1] : "" 
-                                                        ))
-                                                    }                                                
-                                                </td>
-                                                <td>
-                                                    {
-                                                        partner.installed_devices.map((item) =>(
-                                                            item[0] === device ? item[1] : "" 
-                                                        ))
-                                                    }
-                                                </td>
+                                                <td>{device in partner.stock_devices ? partner.stock_devices[device] : "0"}</td>
+                                                <td>{device in partner.installed_devices ? partner.installed_devices[device] : "0"}</td>
                                             </td>
                                         ))
                                     }
