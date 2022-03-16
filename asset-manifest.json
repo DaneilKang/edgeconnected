@@ -1,7 +1,7 @@
 {
   "main.css": "/edgeconnected/static/css/main.32980aff.chunk.css",
-  "main.js": "/edgeconnected/static/js/main.0d0aa7ce.chunk.js",
-  "main.js.map": "/edgeconnected/static/js/main.0d0aa7ce.chunk.js.map",
+  "main.js": "/edgeconnected/static/js/main.d3436266.chunk.js",
+  "main.js.map": "/edgeconnected/static/js/main.d3436266.chunk.js.map",
   "static/js/1.128fd612.chunk.js": "/edgeconnected/static/js/1.128fd612.chunk.js",
   "static/js/1.128fd612.chunk.js.map": "/edgeconnected/static/js/1.128fd612.chunk.js.map",
   "static/js/2.22b58f88.chunk.js": "/edgeconnected/static/js/2.22b58f88.chunk.js",
@@ -21,6 +21,6 @@
   "static/media/resi-battery-orange.svg": "/edgeconnected/static/media/resi-battery-orange.550d15b1.svg",
   "static/css/main.32980aff.chunk.css.map": "/edgeconnected/static/css/main.32980aff.chunk.css.map",
   "index.html": "/edgeconnected/index.html",
-  "precache-manifest.04ef86ad968a967e8073db5bd1b10e46.js": "/edgeconnected/precache-manifest.04ef86ad968a967e8073db5bd1b10e46.js",
+  "precache-manifest.b9185e4c8413223f9243612b304ee804.js": "/edgeconnected/precache-manifest.b9185e4c8413223f9243612b304ee804.js",
   "service-worker.js": "/edgeconnected/service-worker.js"
 }
