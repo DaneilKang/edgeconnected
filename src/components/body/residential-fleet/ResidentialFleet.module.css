@@ -50,7 +50,7 @@ th, td {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: pre-wrap;
-    width: 80px;
+    width: 70px;
     font-size: 0.5rem;
 }
 

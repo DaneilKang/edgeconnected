@@ -62,17 +62,35 @@ function ResidentialFleet ({searchQuery}) {
     // Change page with pagination
     const pagenate = (pageNumber) => setCurrentPage(pageNumber);
 
-    const currentDateTime = new Date();
-    const one_hour = 1000 * 60 * 60;
 
-    const getTimestampToRealTime = (timestamp) => {
-        const timestampToNow = Math.floor(Math.round(currentDateTime.getTime() - new Date((timestamp) * 1000).getTime()) / one_hour);
-        return timestampToNow > 24 
-            ? Math.floor(timestampToNow / 24) + "day(s)"
-            : timestampToNow === 0 
-                ? ""
-                : Math.floor(timestampToNow) + "hour(s)"
+    // Get the current time
+    const currentDateTime = Math.round(new Date().getTime() / 1000);
+    const periods = [
+                        ['year', 60 * 60 * 24 * 365],
+                        ['month', (60 * 60 * 24 * 365) / 12],
+                        ['week', (60 * 60 * 24 * 365) / 52],
+                        ['day', 60 * 60 * 24],
+                        ['hour', 60 * 60],
+                        ['minute', 60]
+                    ];
+
+    // getTimeString(defaultValue, timestamp, suffix)
+    const getTimeString = (defaultValue, timestamp, suffix) => {
+        
+        if ( timestamp === null || isNaN(timestamp)) return defaultValue;
+
+        let difference = currentDateTime - timestamp;
+        var suffixes = "";
+
+        for (let i = 0; i < periods.length; i++){
+            if (difference >= periods[i][1]) {
+                suffixes = Math.floor(difference / periods[i][1]) > 1 ? "s " : " ";
+                return Math.floor(difference / periods[i][1]) + " " + periods[i][0] + suffixes + suffix;
+            }
+        }
     }
+
+
 
     return (
         isLoading ? 
@@ -92,7 +110,7 @@ function ResidentialFleet ({searchQuery}) {
                 <table className={styles.list_table}>
                     <thead className={styles.table_head}>
                         <tr>
-                            <th className={styles.list_performance_check}>Performance<br/>Check</th>
+                            <th className={styles.list_performance_check}>Performance Check</th>
                             <th>Customer</th>
                             <th>Site Address</th>
                             <th>Device</th>
@@ -129,7 +147,7 @@ function ResidentialFleet ({searchQuery}) {
                                             list.devices.map(device=>
                                                 (
                                                     <div className={styles.alert}>
-                                                        {device.serial_number} {getTimestampToRealTime(device.last_received_packet)} offline
+                                                        {device.serial_number} {getTimeString("", device.last_received_packet, "offline")} 
                                                     </div>
                                                 )
                                             )        
@@ -137,8 +155,8 @@ function ResidentialFleet ({searchQuery}) {
                                 </td>
                                 <td>
                                     <div className={styles.last_activity}>
-                                        <div>Desktop Login: {list.last_accessed_desktop === null ? "Never" : getTimestampToRealTime(list.last_accessed_desktop) + " ago"}</div>
-                                        <div>App Login: {list.last_accessed_app === null ? "Never" : getTimestampToRealTime(list.last_accessed_app) + " ago"}</div>
+                                        <div>Desktop Login: {getTimeString("Never", list.last_accessed_desktop, "ago")}</div>
+                                        <div>App Login: {getTimeString("Never", list.last_accessed_app, "ago")}</div>
                                     </div>
                                 </td>
                                 <td>{list.partners}</td>
