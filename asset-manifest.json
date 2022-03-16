@@ -1,7 +1,7 @@
 {
   "main.css": "/edgeconnected/static/css/main.d65ae1a5.chunk.css",
-  "main.js": "/edgeconnected/static/js/main.073e21c3.chunk.js",
-  "main.js.map": "/edgeconnected/static/js/main.073e21c3.chunk.js.map",
+  "main.js": "/edgeconnected/static/js/main.106c470c.chunk.js",
+  "main.js.map": "/edgeconnected/static/js/main.106c470c.chunk.js.map",
   "static/js/1.cd474f2d.chunk.js": "/edgeconnected/static/js/1.cd474f2d.chunk.js",
   "static/js/1.cd474f2d.chunk.js.map": "/edgeconnected/static/js/1.cd474f2d.chunk.js.map",
   "static/js/2.25425f44.chunk.js": "/edgeconnected/static/js/2.25425f44.chunk.js",
@@ -10,6 +10,6 @@
   "runtime~main.js.map": "/edgeconnected/static/js/runtime~main.9de56420.js.map",
   "static/css/main.d65ae1a5.chunk.css.map": "/edgeconnected/static/css/main.d65ae1a5.chunk.css.map",
   "index.html": "/edgeconnected/index.html",
-  "precache-manifest.97087cb96acc399e3ac8eaa743c73f62.js": "/edgeconnected/precache-manifest.97087cb96acc399e3ac8eaa743c73f62.js",
+  "precache-manifest.8539ea946a87a90a16174b53876ccb0b.js": "/edgeconnected/precache-manifest.8539ea946a87a90a16174b53876ccb0b.js",
   "service-worker.js": "/edgeconnected/service-worker.js"
 }

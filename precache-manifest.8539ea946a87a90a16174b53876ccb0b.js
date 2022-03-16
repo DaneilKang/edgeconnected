@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "073e21c3e5e0637d7d6d",
+    "revision": "106c470c095787ce1f37",
     "url": "/edgeconnected/static/css/main.d65ae1a5.chunk.css"
   },
   {
-    "revision": "073e21c3e5e0637d7d6d",
-    "url": "/edgeconnected/static/js/main.073e21c3.chunk.js"
+    "revision": "106c470c095787ce1f37",
+    "url": "/edgeconnected/static/js/main.106c470c.chunk.js"
   },
   {
     "revision": "cd474f2dcda6b2605ecf",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/edgeconnected/static/js/runtime~main.9de56420.js"
   },
   {
-    "revision": "f33bf46b730cdc6aada2519695dbbcd3",
+    "revision": "a462518176d76d4fa20a39e9966faec3",
     "url": "/edgeconnected/index.html"
   }
 ];
