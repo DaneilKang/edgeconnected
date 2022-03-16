@@ -58,6 +58,7 @@ export default function PartnerList({setTotalPartnerCount, searchQuery}) {
     deviceLists.forEach((device) => {
         deviceTypeLists.push(device.short_name)
     });
+    console.log(deviceTypeLists)
 
     // Change page with pagination
     const pagenate = (pageNumber) => setCurrentPage(pageNumber);
@@ -103,8 +104,20 @@ export default function PartnerList({setTotalPartnerCount, searchQuery}) {
                                     {
                                         deviceTypeLists.map(device => (
                                             <td>
-                                                <td>{partner.installed_devices[0][0] === device ? partner.installed_devices[0][1] : ""}</td>
-                                                <td>{partner.stock_devices[0][0] === device ? partner.stock_devices[0][1] : ""}</td>
+                                                <td>
+                                                    {
+                                                        partner.stock_devices.map((item) =>(
+                                                            item[0] === device ? item[1] : "" 
+                                                        ))
+                                                    }                                                
+                                                </td>
+                                                <td>
+                                                    {
+                                                        partner.installed_devices.map((item) =>(
+                                                            item[0] === device ? item[1] : "" 
+                                                        ))
+                                                    }
+                                                </td>
                                             </td>
                                         ))
                                     }
