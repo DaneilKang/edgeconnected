@@ -59,7 +59,10 @@ th, td {
 .button_business, .button_user {
     font-size: 0.9rem;
     padding: 7px 15px;
+    margin: 1px;
     border-radius: 5px;
+    color: black;
+    background-color: #dededc;
 }
 
 .list_title {

@@ -1,8 +1,11 @@
+import React from 'react';
+import './AddNewUser.css';
+
 function AddNewUser () {
     return <div>
         <div className="container">
            <div>Add New User</div>
-           <form>
+           
                <div>
                    <select >Partner</select>
                </div>
@@ -28,8 +31,8 @@ function AddNewUser () {
                    <input type="button" placeholder="Save And Close"/>
                    <input type="button" placeholder="Close"/>
                </div>
-            </form> 
         </div>
+        
     </div>;
 }
 

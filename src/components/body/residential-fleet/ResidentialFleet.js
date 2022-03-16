@@ -97,7 +97,7 @@ function ResidentialFleet ({searchQuery}) {
                                         <img src="img/resi-monitor-orange.svg" width="25px" height="25px"/>
                                         <img src={list.solar === 1 ? "img/resi-solar-blue.svg" : "img/resi-solar-orange.svg"} width="25px" height="25px"/>
                                         <img src={list.battery === 1 ? "img/resi-battery-blue.svg" : "img/resi-battery-gray.svg"} width="25px" height="25px"/>
-                                        <img src="img/resi-load-gray.svg" width="25px" height="25px"/>
+                                        <img src={list.has_load === 1 ? "img/resi-load-blue.svg" : "img/resi-load-gray.svg"} width="25px" height="25px"/>
                                         
                                     </div>
                                 </td>

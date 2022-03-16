@@ -4,11 +4,13 @@ import styles from "./Partner.module.css";
 import { Audio } from 'react-loader-spinner';
 import Pagination from "../common/pagination/Pagination";
 
-const baseURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-partner-management";
+const partnerListURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-partner-management";
+const deviceListURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-device-type-list";
 
 export default function PartnerList({setTotalPartnerCount, searchQuery}) {
 
     const [lists, setLists] = useState([]);
+    const [deviceLists, setDeviceLists] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [listsPerPage] = useState(10);
@@ -17,9 +19,11 @@ export default function PartnerList({setTotalPartnerCount, searchQuery}) {
         const fetchLists = async () => {
             setIsLoading(true);
 
-            const res = await axios.get(`${baseURL}`);
+            const resPartner = await axios.get(`${partnerListURL}`);
+            const resDevice = await axios.get(`${deviceListURL}`);
             
-            setLists(res.data);
+            setLists(resPartner.data);
+            setDeviceLists(resDevice.data);
             setIsLoading(false);
         };
 
@@ -48,7 +52,12 @@ export default function PartnerList({setTotalPartnerCount, searchQuery}) {
     
     // Total list counts
     setTotalPartnerCount(lists.length);
-  
+
+    // Device type list add
+    const deviceTypeLists = [];
+    deviceLists.forEach((device) => {
+        deviceTypeLists.push(device.short_name)
+    });
 
     // Change page with pagination
     const pagenate = (pageNumber) => setCurrentPage(pageNumber);
@@ -72,18 +81,15 @@ export default function PartnerList({setTotalPartnerCount, searchQuery}) {
                                 <th>Register Installer</th>
                                 <th>Installer</th>
                                 <th>User</th>
-                                <th>ECX Stock</th>
-                                <th>ECX Installed</th>
-                                <th>WW Stock</th>
-                                <th>WW Installed</th>
-                                <th>EIQ Stock</th>
-                                <th>EIQ Installed</th>
-                                <th>PFC Stock</th>
-                                <th>PFC Installed</th>
-                                <th>PFC 52 Stock</th>
-                                <th>PFC 52 Installed</th>
-                                <th>SNR Stock</th>
-                                <th>SNR Installed</th>
+                                {
+                                    deviceLists.map((deviceList) => (
+                                        <td>
+                                            <th>{deviceList.short_name.toUpperCase()} Stock</th>
+                                            <th>{deviceList.short_name.toUpperCase()} Installed</th>
+                                        </td>
+                                    ))
+                                }
+                                
                             </tr>
                         </thead>
                         <tbody className={styles.table_body}>
@@ -94,18 +100,14 @@ export default function PartnerList({setTotalPartnerCount, searchQuery}) {
                                     <td>_ _ _ _</td>
                                     <td>{partner.installers}</td>
                                     <td>{partner.users}</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    {
+                                        deviceTypeLists.map(device => (
+                                            <td>
+                                                <td>{partner.installed_devices[0][0] === device ? partner.installed_devices[0][1] : ""}</td>
+                                                <td>{partner.stock_devices[0][0] === device ? partner.stock_devices[0][1] : ""}</td>
+                                            </td>
+                                        ))
+                                    }
                                 </tr>
                             ))
                         }
