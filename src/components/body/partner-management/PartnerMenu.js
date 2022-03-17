@@ -9,17 +9,18 @@ function PartnerMenu({totalPartnerCount}) {
     const close = () => setShowDialog(false);
 
     return (
-        <div className={styles.menu}>
-            <div>
-                <div className={styles.title}>Partner Management</div>
-                <div className={styles.total_number}>Total Number of Partners : {totalPartnerCount}</div>
+        <>
+            <div className={styles.menu}>
+                <div>
+                    <div className={styles.title}>Partner Management</div>
+                    <div className={styles.total_number}>Total Number of Partners : {totalPartnerCount}</div>
+                </div>
+                
+                <div className={styles.button}>
+                    <button className={styles.button_business} onClick={open}>Add New Business</button>
+                    <button className={styles.button_user}>Add New User</button>
+                </div>
             </div>
-            
-            <div className={styles.button}>
-                <button className={styles.button_business} onClick={open}>Add New Business</button>
-                <button className={styles.button_user}>Add New User</button>
-            </div>
-
             <div>
                 <DialogOverlay 
                     isOpen={showDialog}
@@ -46,7 +47,7 @@ function PartnerMenu({totalPartnerCount}) {
                     </DialogContent>
                 </DialogOverlay>
             </div>
-        </div>
+        </>
     )
 }
 
