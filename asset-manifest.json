@@ -1,7 +1,7 @@
 {
   "main.css": "/static/css/main.430b3534.chunk.css",
-  "main.js": "/static/js/main.15654587.chunk.js",
-  "main.js.map": "/static/js/main.15654587.chunk.js.map",
+  "main.js": "/static/js/main.195886f6.chunk.js",
+  "main.js.map": "/static/js/main.195886f6.chunk.js.map",
   "static/js/1.128fd612.chunk.js": "/static/js/1.128fd612.chunk.js",
   "static/js/1.128fd612.chunk.js.map": "/static/js/1.128fd612.chunk.js.map",
   "static/js/2.e8ecd560.chunk.js": "/static/js/2.e8ecd560.chunk.js",
@@ -21,6 +21,6 @@
   "static/media/resi-battery-orange.svg": "/static/media/resi-battery-orange.550d15b1.svg",
   "static/css/main.430b3534.chunk.css.map": "/static/css/main.430b3534.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.030c466bb0d140429be962e7fa9a839b.js": "/precache-manifest.030c466bb0d140429be962e7fa9a839b.js",
+  "precache-manifest.797b3754f048ec34ac513c4bea9cea6e.js": "/precache-manifest.797b3754f048ec34ac513c4bea9cea6e.js",
   "service-worker.js": "/service-worker.js"
 }

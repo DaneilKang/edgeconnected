@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "15654587daac6158f89b",
+    "revision": "195886f6c3b4d7792ccb",
     "url": "/static/css/main.430b3534.chunk.css"
   },
   {
-    "revision": "15654587daac6158f89b",
-    "url": "/static/js/main.15654587.chunk.js"
+    "revision": "195886f6c3b4d7792ccb",
+    "url": "/static/js/main.195886f6.chunk.js"
   },
   {
     "revision": "128fd6128b9459c5ab86",
@@ -64,7 +64,7 @@ self.__precacheManifest = [
     "url": "/static/media/resi-battery-orange.550d15b1.svg"
   },
   {
-    "revision": "64ec3a5254ac27ed266ae6ed492d337a",
+    "revision": "ae1b0f3e5ddd249b63b91fa5ddc3ccc4",
     "url": "/index.html"
   }
 ];
