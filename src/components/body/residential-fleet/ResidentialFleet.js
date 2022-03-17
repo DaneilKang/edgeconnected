@@ -82,6 +82,10 @@ function ResidentialFleet ({searchQuery}) {
         let difference = currentDateTime - timestamp;
         var suffixes = "";
 
+        if (difference <= 15) {
+            return Math.floor(difference / 60) + " " + "Online";
+        }
+
         for (let i = 0; i < periods.length; i++){
             if (difference >= periods[i][1]) {
                 suffixes = Math.floor(difference / periods[i][1]) > 1 ? "s " : " ";
@@ -132,24 +136,31 @@ function ResidentialFleet ({searchQuery}) {
                                 <td>{list.customer}</td>
                                 <td>{list.site_address}</td>
                                 <td>
-                                    <div className={styles.device}>
-                                        
-                                        <img src={list.has_eiq === 1 ? eiq_blue : eiq_gray} width="25px" height="25px"/>
-                                        {list.device}
-                                        <img src={list.has_energymonitor === 1 ? monitor_blue : monitor_orange} width="25px" height="25px"/>
-                                        <img src={list.solar === 1 ? solar_blue : solar_orange} width="25px" height="25px"/>
-                                        <img src={list.battery === 1 ? battery_blue : battery_gray} width="25px" height="25px"/>
-                                        <img src={list.has_load === 1 ? load_blue : load_gray} width="25px" height="25px"/>
-                                        
-                                    </div>
+                                    {list.devices.length > 0 ? 
+                                        <div className={styles.device}>
+                                            <img src={list.has_eiq === 1 ? eiq_blue : eiq_gray} width="25px" height="25px"/>
+                                            {list.device}
+                                            <img src={list.has_energymonitor === 1 ? monitor_blue : monitor_orange} width="25px" height="25px"/>
+                                            <img src={list.solar === 1 ? solar_blue : solar_orange} width="25px" height="25px"/>
+                                            <img src={list.battery === 1 ? battery_blue : battery_gray} width="25px" height="25px"/>
+                                            <img src={list.has_load === 1 ? load_blue : load_gray} width="25px" height="25px"/>
+                                        </div>
+                                        : "No Devices Installed"
+                                    }
                                 </td>
                                 <td>
                                     {
                                         list.devices.length > 0 &&
-                                            list.devices.map(device=>
+                                            list.devices.map((device,idx,arr)=>
                                                 (
                                                     <div className={styles.alert}>
-                                                        {device.serial_number} {getTimeString("", device.last_received_packet, "offline")} 
+                                                        {
+                                                            arr.length > 1 
+                                                                ? (device.serial_number !== null && device.last_received_packet !== null
+                                                                    ? device.serial_number 
+                                                                    : "" )
+                                                                : ""
+                                                        } {getTimeString("", device.last_received_packet, "offline")} 
                                                     </div>
                                                 )
                                             )        
