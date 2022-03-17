@@ -111,6 +111,7 @@ function ResidentialFleet ({searchQuery}) {
                     <thead className={styles.table_head}>
                         <tr>
                             <th className={styles.list_performance_check}>Performance Check</th>
+                            <th className={styles.list_star}></th>
                             <th>Customer</th>
                             <th>Site Address</th>
                             <th>Device</th>
@@ -127,6 +128,7 @@ function ResidentialFleet ({searchQuery}) {
                                 <td className={styles.list_performance_check}>
                                     <input type="checkbox" name="performance-check" />
                                 </td>
+                                <td className={styles.list_star}><i class="fa-solid fa-star"></i></td>
                                 <td>{list.customer}</td>
                                 <td>{list.site_address}</td>
                                 <td>

@@ -51,7 +51,14 @@ th, td {
     overflow: hidden;
     white-space: pre-wrap;
     width: 70px;
+    max-width: 70px;
     font-size: 0.5rem;
+}
+
+.list_star {
+    width: 50px;
+    max-width: 50px;
+    color: gray;
 }
 
 .device {
