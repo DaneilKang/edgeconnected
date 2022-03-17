@@ -136,21 +136,18 @@ function ResidentialFleet ({searchQuery}) {
                                 <td>{list.customer}</td>
                                 <td>{list.site_address}</td>
                                 <td>
-                                    {list.devices.length > 0 ? 
-                                        <div className={styles.device}>
-                                            <img src={list.has_eiq === 1 ? eiq_blue : eiq_gray} width="25px" height="25px"/>
-                                            {list.device}
-                                            <img src={list.has_energymonitor === 1 ? monitor_blue : monitor_orange} width="25px" height="25px"/>
-                                            <img src={list.solar === 1 ? solar_blue : solar_orange} width="25px" height="25px"/>
-                                            <img src={list.battery === 1 ? battery_blue : battery_gray} width="25px" height="25px"/>
-                                            <img src={list.has_load === 1 ? load_blue : load_gray} width="25px" height="25px"/>
-                                        </div>
-                                        : "No Devices Installed"
-                                    }
+                                    <div className={styles.device}>
+                                        <img src={list.has_eiq === 1 ? eiq_blue : eiq_gray} width="25px" height="25px"/>
+                                        {list.device}
+                                        <img src={list.has_energymonitor === 1 ? monitor_blue : monitor_orange} width="25px" height="25px"/>
+                                        <img src={list.solar === 1 ? solar_blue : solar_orange} width="25px" height="25px"/>
+                                        <img src={list.battery === 1 ? battery_blue : battery_gray} width="25px" height="25px"/>
+                                        <img src={list.has_load === 1 ? load_blue : load_gray} width="25px" height="25px"/>
+                                    </div>
                                 </td>
                                 <td>
                                     {
-                                        list.devices.length > 0 &&
+                                        list.devices.length > 0 ?
                                             list.devices.map((device,idx,arr)=>
                                                 (
                                                     <div className={styles.alert}>
@@ -163,7 +160,8 @@ function ResidentialFleet ({searchQuery}) {
                                                         } {getTimeString("", device.last_received_packet, "offline")} 
                                                     </div>
                                                 )
-                                            )        
+                                            )
+                                            : "No Devices Installed"        
                                     }
                                 </td>
                                 <td>
@@ -187,7 +185,7 @@ function ResidentialFleet ({searchQuery}) {
                     Items per page: {listsPerPage}
                 </div>
                 <div className={styles.page_info}>
-                    {`${indexOfFirstList + 1} - ${currentPage * listsPerPage} of ${lists.length}`}
+                    {Math.floor(indexOfFirstList + 1) + " - " + Math.floor(currentPage * listsPerPage) + " of " + lists.length}
                 </div>
                 <div className={styles.pagination_nav}>
                     <Pagination

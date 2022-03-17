@@ -122,7 +122,7 @@ export default function PartnerList({setTotalPartnerCount, searchQuery}) {
                         Items per page: {listsPerPage}
                     </div>
                     <div className={styles.page_info}>
-                        {`${indexOfFirstList + 1} - ${currentPage * listsPerPage} of ${lists.length}`}
+                        {Math.floor(indexOfFirstList + 1) + " - " + Math.floor(indexOfLastList > lists.length ? lists.length : indexOfLastList) + " of " + lists.length}
                     </div>
                     
                     <div className={styles.pagination_nav}>
