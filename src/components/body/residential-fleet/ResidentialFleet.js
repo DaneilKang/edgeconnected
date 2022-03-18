@@ -145,12 +145,12 @@ function ResidentialFleet ({searchQuery}) {
                                         <img src={list.has_load === 1 ? load_blue : load_gray} width="25px" height="25px"/>
                                     </div>
                                 </td>
-                                <td>
+                                <td className={styles.alert}>
                                     {
                                         list.devices.length > 0 ?
                                             list.devices.map((device,idx,arr)=>
                                                 (
-                                                    <div className={styles.alert}>
+                                                    <div>
                                                         {
                                                             arr.length > 1 
                                                                 ? (device.serial_number !== null && device.last_received_packet !== null

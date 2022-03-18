@@ -1,7 +1,11 @@
 import React from 'react';
 import styles from './Partner.module.css';
 
-function PartnerMenu({totalPartnerCount, setShowModal}) { 
+function PartnerMenu({totalPartnerCount, setShowModal, setModalTitle}) { 
+    const openModal = (modalTitle) => {
+        setShowModal(true);
+        setModalTitle(modalTitle);
+    };
 
     return (
         <div className={styles.menu}>
@@ -11,8 +15,8 @@ function PartnerMenu({totalPartnerCount, setShowModal}) {
             </div>
             
             <div className={styles.button}>
-                <button className={styles.button_business} onClick={() => setShowModal(true)}>Add New Business</button>
-                <button className={styles.button_user}>Add New User</button>
+                <button className={styles.button_business} >Add New Business</button>
+                <button className={styles.button_user} onClick={() => openModal("user")}>Add New User</button>
             </div>
             
         </div>
