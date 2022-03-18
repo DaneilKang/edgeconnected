@@ -9,7 +9,16 @@ import AddNewUser from "./add-new-user/AddNewUser";
 const partnerListURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-partner-management";
 const deviceListURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-device-type-list";
 
-export default function PartnerList({setTotalPartnerCount, searchQuery, showModal, setShowModal, modalTitle}) {
+export default function PartnerList(
+        {
+            setTotalPartnerCount, 
+            searchQuery, 
+            showModal, 
+            setShowModal, 
+            modalTitle,
+            setPartnerLists
+        }) 
+{
 
     const [lists, setLists] = useState([]);
     const [deviceLists, setDeviceLists] = useState([]);
@@ -44,6 +53,10 @@ export default function PartnerList({setTotalPartnerCount, searchQuery, showModa
             return listName.includes(query);
         });
     };
+
+    // Make an array just partner name
+    const partners = lists.map(list => list.name);
+    // setPartnerLists(partners);
 
     // Get current partner lists
     const indexOfLastList = currentPage * listsPerPage;
@@ -137,7 +150,7 @@ export default function PartnerList({setTotalPartnerCount, searchQuery, showModa
                 </div>
                 {showModal ? 
                 <Modal openClose={showModal} setShowModal={setShowModal}>
-                    {modalTitle === "user" ? <AddNewUser /> : ""}
+                    {modalTitle === "user" ? <AddNewUser partners={partners} /> : ""}
                 </Modal>
                 : null }
             </div>

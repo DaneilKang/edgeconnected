@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    width: 25rem;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    width: 100%;
+    text-align: left;
+}
+
+.partner {
+    width: 100%;
+}
+
+.role {
+    width: 100%;
+}
+
+.name {
+    width: 100%;
+}
+
+.email,
+.phone {
+    width: 100%;
+}

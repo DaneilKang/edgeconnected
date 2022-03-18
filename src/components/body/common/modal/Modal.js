@@ -85,10 +85,10 @@ export class Modal extends Component {
         <Container>
             <Background onClick={openClose} />
             <ModalBlock>
-                <button onClick={close}>close</button>
                 <Contents>
                     {this.props.children}
                 </Contents>
+                <button onClick={close}>close</button>
             </ModalBlock>
         </Container>
     );

@@ -9,11 +9,17 @@ export default function PartnerManagement () {
     const [showModal,setShowModal] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const [modalTitle, setModalTitle] = useState(null);
+    const [partnerLists, setPartnerLists] = useState([]);
 
     return (
         <div>
             <div>
-                <PartnerMenu totalPartnerCount={totalPartnerCount} setShowModal={setShowModal} setModalTitle={setModalTitle}/>
+                <PartnerMenu 
+                    totalPartnerCount={totalPartnerCount} 
+                    setShowModal={setShowModal} 
+                    setModalTitle={setModalTitle} 
+                    partnerLists={partnerLists}
+                />
             </div>
             
             <div>
@@ -30,6 +36,7 @@ export default function PartnerManagement () {
                     showModal={showModal}
                     setShowModal={setShowModal}
                     modalTitle={modalTitle}
+                    setPartnerLists={setPartnerLists}
                 />
             </div>
         </div>
