@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 import styles from "./Partner.module.css";
 import { Audio } from 'react-loader-spinner';
 import Pagination from "../common/pagination/Pagination";
+import { Modal } from "../common/modal/Modal";
 
 const partnerListURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-partner-management";
 const deviceListURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-device-type-list";
 
-export default function PartnerList({setTotalPartnerCount, searchQuery}) {
+export default function PartnerList({setTotalPartnerCount, searchQuery, showModal, setShowModal}) {
 
     const [lists, setLists] = useState([]);
     const [deviceLists, setDeviceLists] = useState([]);
@@ -58,7 +59,6 @@ export default function PartnerList({setTotalPartnerCount, searchQuery}) {
     deviceLists.forEach((device) => {
         deviceTypeLists.push(device.short_name)
     });
-    console.log(deviceTypeLists)
 
     // Change page with pagination
     const pagenate = (pageNumber) => setCurrentPage(pageNumber);
@@ -134,6 +134,11 @@ export default function PartnerList({setTotalPartnerCount, searchQuery}) {
                         />
                     </div>
                 </div>
+                {showModal ? 
+                <Modal openClose={showModal} setShowModal={setShowModal}>
+                    This is modal contents here!
+                </Modal>
+                : null }
             </div>
     )
 }
