@@ -15,8 +15,7 @@ export default function PartnerList(
             searchQuery, 
             showModal, 
             setShowModal, 
-            modalTitle,
-            setPartnerLists
+            modalTitle
         }) 
 {
 
@@ -70,6 +69,7 @@ export default function PartnerList(
 
     // Device type list add
     const deviceTypeLists = [];
+    console.log("deviceLists",deviceLists);
     deviceLists.forEach((device) => {
         deviceTypeLists.push(device.short_name)
     });
