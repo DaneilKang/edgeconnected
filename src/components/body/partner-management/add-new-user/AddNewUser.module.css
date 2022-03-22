@@ -1,29 +1,37 @@
 .container {
+    width: 100%;
     display: flex;
-    width: 25rem;
-    height: 100%;
     flex-direction: column;
-    justify-content: space-between;
-}
-
-.title {
-    width: 100%;
-    text-align: left;
-}
-
-.partner {
-    width: 100%;
-}
-
-.role {
-    width: 100%;
-}
-
-.name {
-    width: 100%;
-}
-
-.email,
-.phone {
-    width: 100%;
-}
+    align-items: center;
+  }
+  .title {
+      width: 100%;
+      font-size: large;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #2f2f2f;
+      text-align: center;
+  }
+  .partner {
+      width: 100%;
+  }
+  .role {
+      width: 100%;
+  }
+  .name {
+      width: 100%;
+  }
+  input, select {
+      width: 100%;
+      height: 40px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding-left: 10px;
+      margin-bottom: 10px;
+  }
+  .form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+  }

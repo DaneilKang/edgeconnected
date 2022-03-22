@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { FetchLogin } from "./FetchLogin";
 import { useNavigate } from 'react-router-dom'
+import authService from "./auth.service";
 
 const Container = styled.div`
   margin-top: 100px;
@@ -37,30 +37,25 @@ const Button = styled.div`
 `;
 
 function LoginForm() {
-  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
-  const [account, setAccount] = useState({
-    email: "",
-    password: "",
-  });
+  const [userName, setUserName] = useState("");
 
-  const onChangeAccount = (e) => {
-    setAccount({
-      ...account,
-      [e.target.name]: e.target.value,
-    });
+  const onChangeUserName = (e) => {
+    setUserName(e.target.value)
+  };
+  const onChangePassword = (e) => {
+    setPassword(e.target.value)
   };
 
   const onSubmitAccount = async () => {
     try {
-      const user = await FetchLogin(account);
-
-      setUser(user);
+      await authService.login(userName, password);
       navigate("/");
     } catch (error) {
-
+      console.error("error:", error)
       window.alert(error);
     }
   };
@@ -70,14 +65,14 @@ function LoginForm() {
         id="email"
         name="email"
         placeholder="Email"
-        onChange={onChangeAccount}
+        onChange={onChangeUserName}
       />
       <Input
         id="password"
         name="password"
         type="password"
         placeholder="Password"
-        onChange={onChangeAccount}
+        onChange={onChangePassword}
       />
       <Button onClick={onSubmitAccount}>LOGIN</Button>
     </Container>

@@ -81,7 +81,7 @@ export default function PartnerList(
     // Modal direction
     let modalDirection = "";
     if (modalTitle === "user") {
-        modalDirection = <AddNewUser partners={partners} />
+        modalDirection = <AddNewUser partners={lists} setShowModal={setShowModal}/>
     } else if (modalTitle === "business") {
         modalDirection = <AddNewBusiness partners={partners} />
     }

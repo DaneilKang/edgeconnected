@@ -1,5 +1,5 @@
 export const FetchLogin = async ({ email, password }) => {
-  const response = await fetch("http://localhost:8080/users");
+  const response = await fetch("http://localhost:8080/api");
 
   if (response.ok) {
     const users = await response.json();

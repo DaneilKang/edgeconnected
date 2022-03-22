@@ -1,9 +1,20 @@
 {
-  "users": [
-    {
-      "email": "a@a.com",
-      "password": "1234",
-      "name": "name"
-    }
-  ]
+  "api": {
+    "users": [
+        {
+          "id": 1,
+          "email": "a@a.com",
+          "password": "1234"
+      },
+      {
+        "id": 2,
+        "email": "vc@a.com",
+        "password": "1234"
+      },{
+        "id": 3,
+        "email": "123@a.com",
+        "password": "1234"
+      }
+    ]
+  }
 }
