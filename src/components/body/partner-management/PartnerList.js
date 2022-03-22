@@ -5,6 +5,7 @@ import { Audio } from 'react-loader-spinner';
 import Pagination from "../common/pagination/Pagination";
 import { Modal } from "../common/modal/Modal";
 import AddNewUser from "./add-new-user/AddNewUser";
+import AddNewBusiness from "./add-new-business/AddNewBusiness";
 
 const partnerListURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-partner-management";
 const deviceListURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-device-type-list";
@@ -22,7 +23,7 @@ export default function PartnerList(
     const [lists, setLists] = useState([]);
     const [deviceLists, setDeviceLists] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPagination, setCurrentPagination] = useState(1);
     const [listsPerPage] = useState(10);
    
     useEffect(() => {
@@ -58,7 +59,7 @@ export default function PartnerList(
     // setPartnerLists(partners);
 
     // Get current partner lists
-    const indexOfLastList = currentPage * listsPerPage;
+    const indexOfLastList = currentPagination * listsPerPage;
     const indexOfFirstList = indexOfLastList - listsPerPage;
     const currentLists = lists.slice(indexOfFirstList, indexOfLastList);
     const filteredLists = filterList(currentLists,searchQuery);
@@ -69,13 +70,21 @@ export default function PartnerList(
 
     // Device type list add
     const deviceTypeLists = [];
-    console.log("deviceLists",deviceLists);
     deviceLists.forEach((device) => {
         deviceTypeLists.push(device.short_name)
     });
 
     // Change page with pagination
-    const pagenate = (pageNumber) => setCurrentPage(pageNumber);
+    const pagenate = (pageNumber) => setCurrentPagination(pageNumber);
+
+
+    // Modal direction
+    let modalDirection = "";
+    if (modalTitle === "user") {
+        modalDirection = <AddNewUser partners={partners} />
+    } else if (modalTitle === "business") {
+        modalDirection = <AddNewBusiness partners={partners} />
+    }
 
     return (
         isLoading ? 
@@ -111,7 +120,7 @@ export default function PartnerList(
                         {
                             filteredLists.map((partner,index) => (
                                 <tr key={partner.partnet_id} className={index % 2 === 0 ? styles.list_dark : styles.list_light}>
-                                    <td scope="row" className={styles.list_name}>{partner.name}</td>
+                                    <td className={styles.list_name}>{partner.name}</td>
                                     <td>_ _ _ _</td>
                                     <td>{partner.installers}</td>
                                     <td>{partner.users}</td>
@@ -144,13 +153,13 @@ export default function PartnerList(
                             listsPerPage={listsPerPage}
                             totalLists={lists.length}
                             pagenate={pagenate}
-                            currentPage={currentPage}
+                            currentPagination={currentPagination}
                         />
                     </div>
                 </div>
                 {showModal ? 
                 <Modal openClose={showModal} setShowModal={setShowModal}>
-                    {modalTitle === "user" ? <AddNewUser partners={partners} /> : ""}
+                    {modalDirection}
                 </Modal>
                 : null }
             </div>

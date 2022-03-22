@@ -10,7 +10,7 @@ import eiq_blue from "../../../assets/resi-edgeiq-blue.svg";
 import eiq_gray from "../../../assets/resi-edgeiq-gray.svg";
 import battery_blue from "../../../assets/resi-battery-blue.svg";
 import battery_gray from "../../../assets/resi-battery-gray.svg";
-import battery_orange from "../../../assets/resi-battery-orange.svg";
+// import battery_orange from "../../../assets/resi-battery-orange.svg";
 import load_gray from "../../../assets/resi-load-gray.svg";
 import load_blue from "../../../assets/resi-load-blue.svg";
 import monitor_orange from "../../../assets/resi-monitor-orange.svg";
@@ -24,7 +24,7 @@ const baseURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/tes
 function ResidentialFleet ({searchQuery}) {
     const [lists, setLists] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPagination, setCurrentPagination] = useState(1);
     const [listsPerPage] = useState(10);
 
     useEffect(() => {
@@ -39,7 +39,7 @@ function ResidentialFleet ({searchQuery}) {
 
         fetchLists();
         
-    }, []);
+    },[]);
 
     // filtered lists when filter input
     const filterList = (currentLists, query) => {
@@ -54,13 +54,13 @@ function ResidentialFleet ({searchQuery}) {
     };
 
     // Get current partner lists
-    const indexOfLastList = currentPage * listsPerPage;
+    const indexOfLastList = currentPagination * listsPerPage;
     const indexOfFirstList = indexOfLastList - listsPerPage;
     const currentLists = lists.slice(indexOfFirstList, indexOfLastList);
     const filteredLists = filterList(currentLists,searchQuery);
 
     // Change page with pagination
-    const pagenate = (pageNumber) => setCurrentPage(pageNumber);
+    const pagenate = (pageNumber) => setCurrentPagination(pageNumber);
 
 
     // Get the current time
@@ -83,7 +83,7 @@ function ResidentialFleet ({searchQuery}) {
         var suffixes = "";
 
         if (difference <= 15) {
-            return Math.floor(difference / 60) + " " + "Online";
+            return `${Math.floor(difference / 60)} Online`;
         }
 
         for (let i = 0; i < periods.length; i++){
@@ -137,12 +137,12 @@ function ResidentialFleet ({searchQuery}) {
                                 <td>{list.site_address}</td>
                                 <td>
                                     <div className={styles.device}>
-                                        <img src={list.has_eiq === 1 ? eiq_blue : eiq_gray} width="25px" height="25px"/>
+                                        <img alt="eiq" src={list.has_eiq === 1 ? eiq_blue : eiq_gray} width="25px" height="25px"/>
                                         {list.device}
-                                        <img src={list.has_energymonitor === 1 ? monitor_blue : monitor_orange} width="25px" height="25px"/>
-                                        <img src={list.solar === 1 ? solar_blue : solar_orange} width="25px" height="25px"/>
-                                        <img src={list.battery === 1 ? battery_blue : battery_gray} width="25px" height="25px"/>
-                                        <img src={list.has_load === 1 ? load_blue : load_gray} width="25px" height="25px"/>
+                                        <img alt="monitor" src={list.has_energymonitor === 1 ? monitor_blue : monitor_orange} width="25px" height="25px"/>
+                                        <img alt="solar" src={list.solar === 1 ? solar_blue : solar_orange} width="25px" height="25px"/>
+                                        <img alt="battery" src={list.battery === 1 ? battery_blue : battery_gray} width="25px" height="25px"/>
+                                        <img alt="load" src={list.has_load === 1 ? load_blue : load_gray} width="25px" height="25px"/>
                                     </div>
                                 </td>
                                 <td className={styles.alert}>
@@ -150,7 +150,7 @@ function ResidentialFleet ({searchQuery}) {
                                         list.devices.length > 0 ?
                                             list.devices.map((device,idx,arr)=>
                                                 (
-                                                    <div>
+                                                    <div key={idx}>
                                                         {
                                                             arr.length > 1 
                                                                 ? (device.serial_number !== null && device.last_received_packet !== null
@@ -185,14 +185,14 @@ function ResidentialFleet ({searchQuery}) {
                     Items per page: {listsPerPage}
                 </div>
                 <div className={styles.page_info}>
-                    {Math.floor(indexOfFirstList + 1) + " - " + Math.floor(currentPage * listsPerPage) + " of " + lists.length}
+                    {Math.floor(indexOfFirstList + 1) + " - " + Math.floor(currentPagination * listsPerPage) + " of " + lists.length}
                 </div>
                 <div className={styles.pagination_nav}>
                     <Pagination
                         listsPerPage={listsPerPage}
                         totalLists={lists.length}
                         pagenate={pagenate}
-                        currentPage={currentPage}
+                        currentPagination={currentPagination}
                     />
                 </div>
             </div>

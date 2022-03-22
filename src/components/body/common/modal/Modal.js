@@ -60,13 +60,6 @@ const ModalBlock = styled.div`
     }
 `;
 
-const Close = styled.div`
-    position: absolute;
-    right: 1.5rem;
-    top: 1.5rem;
-    cursor: pointer;
-`;
-
 const Contents = styled.div`
     display: flex;
     flex-direction: column;

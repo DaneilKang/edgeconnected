@@ -5,8 +5,7 @@ import PartnerManagement from './partner-management/PartnerManagement';
 import { Route, Routes, Outlet } from 'react-router-dom';
 import Home from './home/Home';
 import AddNewUser from './partner-management/add-new-user/AddNewUser';
-// import DoughnutChart from "./residential-fleet/analytics/DoughnutChart";
-// import DashBoard from "./residential-fleet/analytics/Dashboard";
+import LoginForm from '../login/LoginForm';
 
 function Body () {
     return (
@@ -17,11 +16,10 @@ function Body () {
                     </Route>
                     <Route path='residential-fleet/*' element={<ResidentialFleet/>}/>
                     <Route path='/*' element={<Home/>} />
+                    <Route path='login/*' element={<LoginForm/>} />
             </Routes>
             
             <Outlet/>
-            {/* <DoughnutChart /> */}
-            {/* <DashBoard /> */}
         </div>
     );
 }

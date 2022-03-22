@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './AddNewUser.module.css';
+import styles from '../AddNew.module.css';
 
 function AddNewUser ({partners}) {
     return ( 

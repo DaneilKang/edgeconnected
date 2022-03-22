@@ -15,7 +15,7 @@ function PartnerMenu({totalPartnerCount, setShowModal, setModalTitle}) {
             </div>
             
             <div className={styles.button}>
-                <button className={styles.button_business} >Add New Business</button>
+                <button className={styles.button_business} onClick={() => openModal("business")}>Add New Business</button>
                 <button className={styles.button_user} onClick={() => openModal("user")}>Add New User</button>
             </div>
             

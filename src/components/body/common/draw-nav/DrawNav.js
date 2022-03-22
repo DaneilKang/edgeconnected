@@ -12,24 +12,24 @@ export default function DrawNav () {
                 <nav id="drawer">
                     <ul>
                         <li id='list-title'>FLEET VIEW</li>
-                        <li><a href="#">Commercial Fleet</a></li>
-                        <li><a href="#">Advanced Fleet</a></li>
+                        <li>Commercial Fleet</li>
+                        <li><Link to="/login">Advanced Fleet</Link></li>
                         <li><Link to="/residential-fleet">Residential Fleet</Link></li>
                         <li id='list-title'>DEVICE MANAGEMENT</li>
-                        <li><a href="#">Register Device</a></li>
-                        <li><a href="#">Unassigned Device</a></li>
-                        <li><a href="#">Activate SIM</a></li>
-                        <li><a href="#">Retired Device</a></li>
+                        <li>Register Device</li>
+                        <li>Unassigned Device</li>
+                        <li>Activate SIM</li>
+                        <li>Retired Device</li>
                         <li id='list-title'>USER MANAGEMENT</li>
                         <li><Link to="/partner-management">Partner Management</Link></li>
                         <li id='list-title'>NETWORK MANAGEMENT</li>
-                        <li><a href="#">Live Loading Map</a></li>
-                        <li><a href="#">Network Aggregated</a></li>
+                        <li>Live Loading Map</li>
+                        <li>Network Aggregated</li>
                         <li id='list-title'>ADMIN CONFIGURATION</li>
-                        <li><a href="#">Device Status</a></li>
-                        <li><a href="#">Register New Business</a></li>
-                        <li><a href="#">High Voltage Dashboard</a></li>
-                        <li><a href="#">High Voltage Opportunities</a></li>
+                        <li>Device Status</li>
+                        <li>Register New Business</li>
+                        <li>High Voltage Dashboard</li>
+                        <li>High Voltage Opportunities</li>
                     </ul>
                 </nav>
             <div id="page-content">

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Pagination = ({ listsPerPage, totalLists, pagenate, currentPage}) => {
+const Pagination = ({ listsPerPage, totalLists, pagenate, currentPagination}) => {
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(totalLists / listsPerPage); i++){
@@ -10,7 +10,7 @@ const Pagination = ({ listsPerPage, totalLists, pagenate, currentPage}) => {
     return (
         <div className="narrows1">
             {
-                currentPage === 1 
+                currentPagination === 1 
                 ? 
                 <span style={{color:"lightgray"}}>
                     <span style={{padding:"0 10px"}}>
@@ -22,13 +22,17 @@ const Pagination = ({ listsPerPage, totalLists, pagenate, currentPage}) => {
                 </span> 
                 : 
                 <span>
-                    <span style={{padding:"0 10px"}}><a href="#" onClick={() => pagenate(1)}><i class="fa-solid fa-angles-left"></i></a></span>
-                    <span style={{padding:"0 10px"}}><a href="#" onClick={() => pagenate(currentPage - 1 <= 1 ? 1 : currentPage - 1)}><i class="fa-solid fa-angle-left"></i></a></span>
+                    <span style={{padding:"0 10px"}}><i className="fa-solid fa-angles-left" onClick={() => pagenate(1)}></i></span>
+                    <span style={{padding:"0 10px"}}>
+                        
+                            <i className="fa-solid fa-angle-left" onClick={() => pagenate(currentPagination - 1 <= 1 ? 1 : currentPagination - 1)}></i>
+                        
+                    </span>
                 </span>
             }
             
             {
-                currentPage === Math.ceil(totalLists / listsPerPage) 
+                currentPagination === Math.ceil(totalLists / listsPerPage) 
                 ? 
                 <span style={{color:"lightgray"}}>
                     <span style={{padding:"0 10px"}}>
@@ -41,14 +45,16 @@ const Pagination = ({ listsPerPage, totalLists, pagenate, currentPage}) => {
                 :
                 <span>
                     <span style={{padding:"0 10px"}}>
-                        <a href="#" onClick={() => pagenate((currentPage + 1) >= Math.ceil(totalLists / listsPerPage) ? Math.ceil(totalLists / listsPerPage) : currentPage + 1)}>
-                            <i class="fa-solid fa-angle-right"></i>
-                        </a>
+                        
+                            <i className="fa-solid fa-angle-right" onClick={() => 
+                                pagenate((currentPagination + 1) >= Math.ceil(totalLists / listsPerPage) 
+                                ? Math.ceil(totalLists / listsPerPage) 
+                                : currentPagination + 1)}></i>
+                        
                     </span>
                     <span style={{padding:"0 10px"}}>
-                        <a href="#" onClick={() => pagenate(Math.ceil(totalLists / listsPerPage))}>
-                            <i class="fa-solid fa-angles-right"></i>
-                        </a>
+                            <i className="fa-solid fa-angles-right" onClick={() => pagenate(Math.ceil(totalLists / listsPerPage))}></i>
+                        
                     </span>
                 </span>
             }
