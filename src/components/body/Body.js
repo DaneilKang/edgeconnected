@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ResidentialFleet from "./residential-fleet/ResidentialFleet";
 import styles from './Body.module.css';
 import PartnerManagement from './partner-management/PartnerManagement';
-import { Route, Routes, Outlet } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from './home/Home';
 import AddNewUser from './partner-management/add-new-user/AddNewUser';
 import LoginForm from '../login/LoginForm';
 
 function Body () {
+    
     return (
         <div className={styles.container}>
             <Routes>
@@ -18,8 +19,6 @@ function Body () {
                     <Route path='/*' element={<Home/>} />
                     <Route path='login/*' element={<LoginForm/>} />
             </Routes>
-            
-            <Outlet/>
         </div>
     );
 }

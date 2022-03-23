@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom'
-import authService from "./auth.service";
+import authService from "../../service/auth.service";
+import AuthService from "../../service/auth.service";
 
 const Container = styled.div`
   margin-top: 100px;
@@ -37,35 +38,42 @@ const Button = styled.div`
 `;
 
 function LoginForm() {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
-  const [userName, setUserName] = useState("");
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await AuthService.login(email, password).then(
+        () => {
+          navigate("/");
+          window.location.reload();
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
-  const onChangeUserName = (e) => {
-    setUserName(e.target.value)
+  const onChangeEmail = (e) => {
+    setEmail(e.target.value)
   };
   const onChangePassword = (e) => {
     setPassword(e.target.value)
   };
 
-  const onSubmitAccount = async () => {
-    try {
-      await authService.login(userName, password);
-      navigate("/");
-    } catch (error) {
-      console.error("error:", error)
-      window.alert(error);
-    }
-  };
   return (
     <Container>
       <Input
         id="email"
         name="email"
         placeholder="Email"
-        onChange={onChangeUserName}
+        onChange={onChangeEmail}
       />
       <Input
         id="password"
@@ -74,7 +82,7 @@ function LoginForm() {
         placeholder="Password"
         onChange={onChangePassword}
       />
-      <Button onClick={onSubmitAccount}>LOGIN</Button>
+      <Button onClick={handleLogin}>LOGIN</Button>
     </Container>
   );
 }
