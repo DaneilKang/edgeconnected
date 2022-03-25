@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styles from './Header.module.css';
+import {UserContext} from '../context/UserContext';
 
 const getCurrentTime = () => {
     
@@ -20,7 +21,9 @@ const getCurrentTime = () => {
 }
 
 function Header() {
-    
+    const {currentUser, currentUserRole, logOut} = useContext(UserContext);
+    const roleDetail = JSON.parse(localStorage.role);
+
     return (
         <nav className={styles.container}>
             <div className={styles.logo}>
@@ -28,14 +31,13 @@ function Header() {
             </div>
             <div className={styles.welcome}>
                 <div className={styles.item}>
-                    <div className={styles.msg}>Welcome Edge Admin</div>
+                    <div className={styles.msg}>Welcome Edge {roleDetail.role_name.toUpperCase()}</div>
                     <div className={styles.date}>{getCurrentTime()}</div>
                 </div>
                 <div className={styles.icon}>
-                    <i class="fa-solid fa-user"></i>
+                    <i className="fa-solid fa-user"></i>
                 </div>
             </div>
-            
         </nav>
     )    
 }

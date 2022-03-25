@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom'
-import authService from "../../service/auth.service";
 import AuthService from "../../service/auth.service";
 
 const Container = styled.div`

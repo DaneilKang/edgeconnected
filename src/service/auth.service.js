@@ -1,4 +1,5 @@
 import axios from "axios";
+import setAuthorizationToken from "./setAuthorizationToken";
 
 const API_URL = process.env.REACT_APP_LOGIN_API_URL;
 
@@ -10,7 +11,7 @@ const signUp = (email, password) => {
             data: { email, password }
         }).then(response => {
             if (response.data.accessToken) {
-                localStorage.setItem("user", JSON.stringify(response.data));
+                localStorage.setItem("jwtToken", JSON.stringify(response.data));
             } else {
                 alert("Token access error!! or Incorrect user information!");
             }
@@ -25,29 +26,31 @@ const login = (email, password) => {
                 headers: {}, 
                 data: { email, password }
             }).then(response => {
-                if (response.data.body) {
-                    localStorage.setItem("user", JSON.stringify(response.data));
-                } else {
-                    alert("Token access error!! or Incorrect user information!");
-                }
+                const token = response.data.body;
+                localStorage.setItem("jwtToken", token);
+                setAuthorizationToken(token);
                 return response.data;
             });
 };
 
 const logout = () => {
-    return localStorage.removeItem("user");
+    return localStorage.clear();
 }
 
 const getCurrentUser = () => {
-    return JSON.parse(localStorage.getItem('user'));
+    return localStorage.getItem('jwtToken');
 }
 
+const getCurrentUserRole = () => {
+    return localStorage.getItem('role');
+}
 
 const AuthService = {
     signUp,
     login,
     logout,
     getCurrentUser,
+    getCurrentUserRole,
 };
 
 export default AuthService;

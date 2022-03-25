@@ -2,17 +2,14 @@ import React, { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 
 export default function Home () {
-    const {currentUser, logOut} = useContext(UserContext);
-    
+    const {currentUser, currentUserRole, logOut} = useContext(UserContext);
+    const roleDetail = JSON.parse(localStorage.role);
+
     return (
         <div>
             <h1 className="text-3xl font-bold underline">
-                Edge Electron Admin Home
+                {currentUserRole ? <span className='text-orange-700'>{roleDetail.role_name.toUpperCase()} : {roleDetail.partner_name} Home</span> : ""}
             </h1>
-            {
-                currentUser && <a href='/' onClick={logOut}>LOGOUT</a>
-            }
-            
         </div>
     );
 }

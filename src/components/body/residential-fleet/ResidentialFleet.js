@@ -1,10 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styles from "./ResidentialFleet.module.css";
 import { Audio } from 'react-loader-spinner';
 import Pagination from "../common/pagination/Pagination";
 import MapView from "../common/map-view/MapView";
-// import Dashboard from "./analytics/ResidentialAnalytics";
+import { UserContext } from "../../context/UserContext";
 
 import eiq_blue from "../../../assets/resi-edgeiq-blue.svg";
 import eiq_gray from "../../../assets/resi-edgeiq-gray.svg";
@@ -22,10 +22,12 @@ import solar_orange from "../../../assets/resi-solar-orange.svg";
 const baseURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-residential-fleet"
 
 function ResidentialFleet ({searchQuery}) {
+    const {currentUserRole, logOut} = useContext(UserContext);
     const [lists, setLists] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [currentPagination, setCurrentPagination] = useState(1);
     const [listsPerPage] = useState(10);
+    
 
     useEffect(() => {
         const fetchLists = async () => {
@@ -40,6 +42,9 @@ function ResidentialFleet ({searchQuery}) {
         fetchLists();
         
     },[]);
+
+    
+    if(!currentUserRole || currentUserRole !== 1) return logOut();
 
     // filtered lists when filter input
     const filterList = (currentLists, query) => {
