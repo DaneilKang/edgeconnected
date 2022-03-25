@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/edgeconnected/static/css/main.160b091f.css",
-    "main.js": "/edgeconnected/static/js/main.5c839a1c.js",
+    "main.js": "/edgeconnected/static/js/main.7a26da4b.js",
     "static/js/787.9d30bf70.chunk.js": "/edgeconnected/static/js/787.9d30bf70.chunk.js",
     "static/media/resi-edgeiq-blue.svg": "/edgeconnected/static/media/resi-edgeiq-blue.83aa6b33c9280be703dca6bc6aace4da.svg",
     "static/media/resi-edgeiq-gray.svg": "/edgeconnected/static/media/resi-edgeiq-gray.1f1f4f973c5cef5b173f4392cd3f67ba.svg",
@@ -15,11 +15,11 @@
     "static/media/resi-battery-blue.svg": "/edgeconnected/static/media/resi-battery-blue.0c132b9c0e7faa569dbff795fe75fb47.svg",
     "static/media/resi-battery-gray.svg": "/edgeconnected/static/media/resi-battery-gray.2c43fa1a7b4eea44662468b6dfdfb4cc.svg",
     "main.160b091f.css.map": "/edgeconnected/static/css/main.160b091f.css.map",
-    "main.5c839a1c.js.map": "/edgeconnected/static/js/main.5c839a1c.js.map",
+    "main.7a26da4b.js.map": "/edgeconnected/static/js/main.7a26da4b.js.map",
     "787.9d30bf70.chunk.js.map": "/edgeconnected/static/js/787.9d30bf70.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.160b091f.css",
-    "static/js/main.5c839a1c.js"
+    "static/js/main.7a26da4b.js"
   ]
 }
