@@ -25,12 +25,15 @@ function AddNewUser ({partners, setShowModal}) {
             phone_number: inputPhone.current.value
         };
         console.log(data);
+        // get the authendication token
+        const USER_TOKEN = localStorage.getItem('jwtToken');
         // send post request to server
         const url = 'https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/add-new-user';
         const config = {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'x-token': USER_TOKEN
             },
             body: JSON.stringify(data)
         };
