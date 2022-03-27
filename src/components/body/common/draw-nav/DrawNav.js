@@ -5,20 +5,32 @@ import Body from '../../Body';
 import './DrawNav.css';
 import { UserContext } from '../../../context/UserContext';
 
+import { useNavigate } from 'react-router-dom';
+
+
 export default function DrawNav () {
     const {currentUserRole, logOut} = useContext(UserContext);
+    const navigate = useNavigate();    
+    const roleDetail = JSON.parse(localStorage.role);
+    // const roleDetail = currentUserRole && JSON.parse(currentUserRole);
+    const logoutClicked = () => {
+        logOut();
+        navigate('/');
+        window.location.reload();
+    }
+
     return (
         <div className='Drawer-nav'>
             <input type="checkbox" id="drawer-toggle" name="drawer-toggle"/>
             <label htmlFor="drawer-toggle" id="drawer-toggle-label"></label>
                 <nav id="drawer">
                     {
-                        currentUserRole ? 
-                            (currentUserRole.role_id === '1' ?
+                        roleDetail ? 
+                            (roleDetail.role_id === 1 ?
                             <ul> 
                                 <li id='list-title'>FLEET VIEW</li>
                                 <li>Commercial Fleet</li>
-                                <li><a href='/' onClick={logOut}>LOGOUT</a></li>
+                                <li><a href='#' onClick={logoutClicked}>LOGOUT</a></li>
                                 <li><Link to="/residential-fleet">Residential Fleet</Link></li>
                                 <li id='list-title'>DEVICE MANAGEMENT</li>
                                 <li>Register Device</li>
@@ -36,23 +48,23 @@ export default function DrawNav () {
                                 <li>High Voltage Dashboard</li>
                                 <li>High Voltage Opportunities</li>
                             </ul>
-                            : currentUserRole.role_id === '3' ?
+                            : roleDetail.role_id === 3 ?
                                 <ul>
-                                    <li><a href='/' onClick={logOut}>LOGOUT</a></li>
+                                    <li><a href='#' onClick={logoutClicked}>LOGOUT</a></li>
                                     <li id='list-title'>DEVICE MANAGEMENT</li>
                                     <li>Register Device</li>
                                     <li>Unassigned Device</li>
                                     <li>Activate SIM</li>
                                     <li>Retired Device</li>
                                 </ul>
-                                : currentUserRole.role_id === '2' ?
+                                : roleDetail.role_id === 2 ?
                                     <ul>
-                                        <li><a href='/' onClick={logOut}>LOGOUT</a></li>
+                                        <li><a href='#' onClick={logoutClicked}>LOGOUT</a></li>
                                         <li><Link to="/partner-management">Partner Management</Link></li>
                                     </ul>
                                     :
                                     <ul>
-                                        <li><a href='/' onClick={logOut}>LOGOUT</a></li>
+                                        <li><a href='#' onClick={logoutClicked}>LOGOUT</a></li>
                                     </ul> 
                             )
                         : 

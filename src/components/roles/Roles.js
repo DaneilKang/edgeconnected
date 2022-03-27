@@ -18,8 +18,8 @@ const Roles = () => {
 
     const selectedRole = (role) => {
         localStorage.setItem("role", JSON.stringify(role));
-        
-        navigate("/");
+        navigate('/home');
+        window.location.reload();
     }
 
     return (
@@ -32,7 +32,7 @@ const Roles = () => {
                 {roles.map((role,idx) => 
                     <div className="bg-slate-300 p-3 m-1" key={idx}>
                         <a href="/"  onClick={() => selectedRole(role)}>
-                            {role.role_name.toUpperCase()} - {role.partner_name}
+                            {role.role_name.toUpperCase()} - {role.partner_name ? role.partner_name : role.site_name}
                         </a>
                     </div>
                 )}

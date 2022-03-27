@@ -29,11 +29,12 @@ export default function PartnerList(
     useEffect(() => {
         const fetchLists = async () => {
             setIsLoading(true);
+            const USER_TOKEN = localStorage.getItem('jwtToken');
 
-            const resPartner = await axios.get(`${partnerListURL}`);
-            const resDevice = await axios.get(`${deviceListURL}`);
+            const resPartner = await axios.get(`${partnerListURL}`, { headers: { "x-token": USER_TOKEN } });
+            const resDevice = await axios.get(`${deviceListURL}`, { headers: { "x-token": USER_TOKEN } });
             
-            setLists(resPartner.data);
+            setLists(resPartner.data.body);
             setDeviceLists(resDevice.data);
             setIsLoading(false);
         };

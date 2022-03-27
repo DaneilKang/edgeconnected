@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import styles from './Header.module.css';
-import {UserContext} from '../context/UserContext';
+// import {UserContext} from '../context/UserContext';
 
 const getCurrentTime = () => {
     
@@ -21,7 +21,7 @@ const getCurrentTime = () => {
 }
 
 function Header() {
-    const {currentUser, currentUserRole, logOut} = useContext(UserContext);
+    // const {currentUser, currentUserRole, logOut} = useContext(UserContext);
     const roleDetail = JSON.parse(localStorage.role);
 
     return (
@@ -35,7 +35,7 @@ function Header() {
                     <div className={styles.date}>{getCurrentTime()}</div>
                 </div>
                 <div className={styles.icon}>
-                    <i className="fa-solid fa-user"></i>
+                    <i className="fa-solid fa-user" />
                 </div>
             </div>
         </nav>
