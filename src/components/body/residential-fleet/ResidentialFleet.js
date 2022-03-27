@@ -32,10 +32,12 @@ function ResidentialFleet ({searchQuery}) {
     useEffect(() => {
         const fetchLists = async () => {
             setIsLoading(true);
-
-            const res = await axios.get(`${baseURL}`);
             
-            setLists(res.data);
+            const USER_TOKEN = localStorage.getItem('jwtToken');
+
+            const res = await axios.get(`${baseURL}`, { headers: { "x-token": USER_TOKEN } });
+            
+            setLists(res.data.body);
             setIsLoading(false);
         };
 
@@ -44,7 +46,7 @@ function ResidentialFleet ({searchQuery}) {
     },[]);
 
     
-    if(!currentUserRole || currentUserRole !== 1) return logOut();
+    // if(!currentUserRole || currentUserRole !== 1) return logOut();
 
     // filtered lists when filter input
     const filterList = (currentLists, query) => {
