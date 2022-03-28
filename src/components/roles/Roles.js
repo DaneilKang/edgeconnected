@@ -11,7 +11,7 @@ const Roles = () => {
     useEffect(() => {
         if(localStorage.jwtToken) {
             const jwt_decode = jwt(localStorage.jwtToken);
-            setRoles(jwt_decode.roles);
+            setRoles(jwt_decode.roles.sort((a,b) => a.role_id - b.role_id));
         }
         
     }, []);
@@ -25,8 +25,8 @@ const Roles = () => {
     return (
         <div className="flex justify-center">
             
-            <div className="place-items-center m-10 border-2 w-80 h-80 drop-shadow-lg">
-                <div className="h-20 text-2xl p-3">
+            <div className="place-items-center m-4 border-2 rounded-lg w-80 drop-shadow-lg">
+                <div className="h-15 text-2xl p-2">
                     Choose your role:
                 </div>
                 {roles.map((role,idx) => 
@@ -36,7 +36,7 @@ const Roles = () => {
                         </a>
                     </div>
                 )}
-                <div className="bg-slate-300 p-3 m-1 text-blue-50">
+                <div className="bg-slate-600 p-3 m-1 text-blue-50">
                     <a href="/" onClick={logOut}>LOGOUT</a>
                 </div>
             </div>

@@ -1,6 +1,5 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import jwt from 'jwt-decode';
 import DrawNav from './components/body/common/draw-nav/DrawNav';
 import { UserContext } from './components/context/UserContext';
 import AuthService from './service/auth.service';

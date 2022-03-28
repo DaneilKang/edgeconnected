@@ -34,11 +34,11 @@ const Background = styled.div`
 
 const ModalBlock = styled.div`
     position: absolute;
-    top: 6.5rem;
+    top: 4.5rem;
     border-radius: 10px;
     border: 1px solid #ccc;
     padding: 1.5rem;
-    background-color: #f0f0f0;
+    background-color: #fafafa;
     width: 30rem;
     @media (max-width: 1120px) {
         width: 20rem;
@@ -47,7 +47,7 @@ const ModalBlock = styled.div`
         width: 80%;
     }
     min-height: 15rem;
-    animation: modal-show 1s;
+    animation: modal-show 0.5s;
     @keyframes modal-show {
         from {
             opacity: 0;
@@ -70,9 +70,9 @@ export class Modal extends Component {
   render() {
     const { openClose, setShowModal } = this.props;
     
-    const close = () => {
-        setShowModal(false)
-    }
+    // const close = () => {
+    //     setShowModal(false)
+    // }
 
     return (
         <Container>
@@ -81,7 +81,6 @@ export class Modal extends Component {
                 <Contents>
                     {this.props.children}
                 </Contents>
-                <button onClick={close}>close</button>
             </ModalBlock>
         </Container>
     );

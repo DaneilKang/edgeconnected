@@ -24,7 +24,7 @@ function AddNewUser ({partners, setShowModal}) {
             password: inputPassword.current.value,
             phone_number: inputPhone.current.value
         };
-        console.log(data);
+        
         // get the authendication token
         const USER_TOKEN = localStorage.getItem('jwtToken');
         // send post request to server
@@ -37,11 +37,11 @@ function AddNewUser ({partners, setShowModal}) {
             },
             body: JSON.stringify(data)
         };
-        console.log(config);
+
         fetch(url, config)
             .then(response => response.json())
             .then(data => console.log(data));
-        // close the modal
+        setShowModal(false);
     }
     return ( 
         <form className={styles.form}>
@@ -86,8 +86,10 @@ function AddNewUser ({partners, setShowModal}) {
                             <label htmlFor="phone">Phone</label>
                             <input ref={inputPhone} id='phone' type="tel" placeholder="0412345678" />
                         </div>
-                        <input type="submit" value="Add User" onClick={onSubmit}/>
-                        <button onClick={()=>setShowModal}>Close Button</button>
+                        <div>
+                            <input type="submit" value="Add User" onClick={onSubmit}/>
+                            <input type="button" onClick={()=>setShowModal(false)} value="CLOSE"/>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function DrawNav () {
-    const {currentUserRole, logOut} = useContext(UserContext);
+    const {logOut} = useContext(UserContext);
     const navigate = useNavigate();    
     const roleDetail = JSON.parse(localStorage.role);
     // const roleDetail = currentUserRole && JSON.parse(currentUserRole);
