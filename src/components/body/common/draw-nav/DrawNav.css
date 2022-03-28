@@ -131,6 +131,7 @@
   #drawer ul {
     list-style-type: none;
     font-size: 0.9rem;
+    text-align: left;
   }
   
   #drawer ul a {
