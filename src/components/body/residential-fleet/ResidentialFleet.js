@@ -33,7 +33,7 @@ function ResidentialFleet ({searchQuery}) {
             setIsLoading(true);
             
             const USER_TOKEN = localStorage.getItem('jwtToken');
-            const USER_ROLE = localStorage.getItem('role').replace(/\"/gi,'\'');
+            const USER_ROLE = localStorage.getItem('role').replace(/\"/gi,'\\"');
 
             const res = await axios.get(`${baseURL}`, { headers: { "x-token": USER_TOKEN, "x-role": USER_ROLE } });
             
