@@ -6,6 +6,7 @@ import Pagination from "../common/pagination/Pagination";
 import { Modal } from "../common/modal/Modal";
 import AddNewUser from "./add-new-user/AddNewUser";
 import AddNewBusiness from "./add-new-business/AddNewBusiness";
+import AuthService from "../../../service/auth.service";
 
 const partnerListURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-partner-management";
 const deviceListURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-device-type-list";
@@ -33,6 +34,8 @@ export default function PartnerList(
 
             const resPartner = await axios.get(`${partnerListURL}`, { headers: { "x-token": USER_TOKEN } });
             const resDevice = await axios.get(`${deviceListURL}`, { headers: { "x-token": USER_TOKEN } });
+
+            AuthService.getCurrentUserPermission(resPartner.data.statusCode, resPartner.data.message);
             
             setLists(resPartner.data.body);
             setDeviceLists(resDevice.data);

@@ -5,6 +5,7 @@ import { Audio } from 'react-loader-spinner';
 import Pagination from "../common/pagination/Pagination";
 import MapView from "../common/map-view/MapView";
 import { UserContext } from "../../context/UserContext";
+import AuthService from "../../../service/auth.service";
 
 import eiq_blue from "../../../assets/resi-edgeiq-blue.svg";
 import eiq_gray from "../../../assets/resi-edgeiq-gray.svg";
@@ -37,11 +38,8 @@ function ResidentialFleet ({searchQuery}) {
 
             const res = await axios.get(`${baseURL}`, { headers: { "x-token": USER_TOKEN } });
             
-            if(res.data.statusCode !== 200) {
-                console.log(res.data.message);
-                alert(res.data.message);
-                return logOut();
-            }
+            AuthService.getCurrentUserPermission(res.data.statusCode, res.data.message);
+
             setLists(res.data.body)
             setIsLoading(false);
         };
