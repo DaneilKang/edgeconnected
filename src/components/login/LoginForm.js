@@ -73,7 +73,6 @@ function LoginForm() {
   };
 
   return (
-    
       <Container>
         <div>
           <img src="https://www.edgeconnected.com/manage/assets/images/logos/edgelogo.png" style={{width:"120px", height:"120px"}} alt="logo"/>
