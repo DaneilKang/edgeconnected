@@ -45,12 +45,23 @@ const getCurrentUserRole = () => {
     return localStorage.getItem('role');
 }
 
+// access who has the permission to access the page
+const getCurrentUserPermission = (statusCode, message) => {
+    if(statusCode !== 200) {
+        console.log(message);
+        alert(message);
+        AuthService.logout();
+        return window.location.reload();
+    }
+}
+
 const AuthService = {
     signUp,
     login,
     logout,
     getCurrentUser,
     getCurrentUserRole,
+    getCurrentUserPermission,
 };
 
 export default AuthService;
