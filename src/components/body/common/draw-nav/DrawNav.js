@@ -40,7 +40,7 @@ export default function DrawNav () {
                             (roleDetail.role_id === 1 ?
                             <ul> 
                                 <li id='list-title'>FLEET VIEW</li>
-                                
+                                <li><Link to="/residential-fleet">Residential Fleet</Link></li>
                                 <li id='list-title'>DEVICE MANAGEMENT</li>
                                 <li><Link to="/partner-management">Partner Management</Link></li>
                                 <li id='list-title'>ACCOUNT</li>
