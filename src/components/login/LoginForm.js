@@ -73,7 +73,7 @@ function LoginForm() {
   };
 
   return (
-    <div >
+    
       <Container>
         <div>
           <img src="https://www.edgeconnected.com/manage/assets/images/logos/edgelogo.png" style={{width:"120px", height:"120px"}} alt="logo"/>
@@ -93,7 +93,6 @@ function LoginForm() {
         />
         <Button onClick={handleLogin}>LOGIN</Button>
       </Container>
-    </div>
   );
 }
 
