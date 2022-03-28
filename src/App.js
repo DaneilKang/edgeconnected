@@ -28,11 +28,16 @@ function App() {
     window.location.reload();
   };
 
+  const switchRole = () => {
+    AuthService.switchrole();
+    window.location.reload();
+  };
+
   setAuthorizationToken(localStorage.jwtToken);
 
   return (
     <div className="App">
-      <UserContext.Provider value={{currentUser, currentUserRole, setCurrentUserRole, setCurrentUser, logOut}}>
+      <UserContext.Provider value={{currentUser, currentUserRole, setCurrentUserRole, setCurrentUser, logOut, switchRole}}>
         {
           localStorageToken 
           ? localStorage.getItem('role') 

@@ -37,6 +37,11 @@ const logout = () => {
     return localStorage.clear();
 }
 
+const switchrole = () => {
+    // remove the role from localStorage
+    return localStorage.removeItem('role');
+}
+
 const getCurrentUser = () => {
     return localStorage.getItem('jwtToken');
 }
@@ -62,6 +67,7 @@ const AuthService = {
     getCurrentUser,
     getCurrentUserRole,
     getCurrentUserPermission,
+    switchrole,
 };
 
 export default AuthService;
