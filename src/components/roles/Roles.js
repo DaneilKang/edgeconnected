@@ -30,15 +30,17 @@ const Roles = () => {
                     Choose your role:
                 </div>
                 {roles.map((role,idx) => 
-                    <div className="bg-slate-300 p-3 m-1" key={idx}>
-                        <Link to="/"  onClick={() => selectedRole(role)}>
+                    <Link to="/" key={idx} onClick={() => selectedRole(role)}>
+                        <div className="bg-slate-300 p-3 m-1" >
                             {role.role_name.toUpperCase()} - {role.partner_name ? role.partner_name : role.site_name}
-                        </Link>
-                    </div>
+                        </div>
+                    </Link>
                 )}
-                <div className="bg-slate-600 p-3 m-1 text-blue-50">
-                    <Link to="/" onClick={logOut}>LOGOUT</Link>
-                </div>
+                <Link to="/" onClick={logOut}>
+                    <div className="bg-slate-600 p-3 m-1 text-blue-50">
+                        LOGOUT
+                    </div>
+                </Link>
             </div>
         </div>
     );
