@@ -31,9 +31,10 @@ export default function PartnerList(
         const fetchLists = async () => {
             setIsLoading(true);
             const USER_TOKEN = localStorage.getItem('jwtToken');
+            const USER_ROLE = localStorage.getItem('role');
 
-            const resPartner = await axios.get(`${partnerListURL}`, { headers: { "x-token": USER_TOKEN } });
-            const resDevice = await axios.get(`${deviceListURL}`, { headers: { "x-token": USER_TOKEN } });
+            const resPartner = await axios.get(`${partnerListURL}`, { headers: { "x-token": USER_TOKEN, "x-role": JSON.stringify(USER_ROLE) } });
+            const resDevice = await axios.get(`${deviceListURL}`, { headers: { "x-token": USER_TOKEN, "x-role": JSON.stringify(USER_ROLE) } });
 
             AuthService.getCurrentUserPermission(resPartner.data.statusCode, resPartner.data.message);
             

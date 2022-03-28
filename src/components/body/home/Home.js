@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 
 export default function Home () {
-    const {currentUser, currentUserRole, logOut} = useContext(UserContext);
+    const {currentUserRole} = useContext(UserContext);
     const roleDetail = JSON.parse(localStorage.role);
 
     return (

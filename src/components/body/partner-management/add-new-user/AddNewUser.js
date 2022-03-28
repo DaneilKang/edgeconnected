@@ -80,8 +80,8 @@ function AddNewUser ({partners, setShowModal}) {
                     </div>
                 </div>
                 <div className={styles.buttons}>
-                    <button onClick={onSubmit}>Add New User</button>
-                    <button onClick={()=>setShowModal(false)}>Close</button>
+                    <button className={styles.button} onClick={onSubmit}>Add New User</button>
+                    <button className={styles.button} onClick={()=>setShowModal(false)}>Close</button>
                 </div>
             </div>
         </form>
