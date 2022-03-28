@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import jwt from "jwt-decode";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from "../context/UserContext";
 
 const Roles = () => {
@@ -18,7 +18,7 @@ const Roles = () => {
 
     const selectedRole = (role) => {
         localStorage.setItem("role", JSON.stringify(role));
-        navigate('/home');
+        navigate('/');
         window.location.reload();
     }
 
@@ -31,13 +31,13 @@ const Roles = () => {
                 </div>
                 {roles.map((role,idx) => 
                     <div className="bg-slate-300 p-3 m-1" key={idx}>
-                        <a href="/"  onClick={() => selectedRole(role)}>
+                        <Link to="/"  onClick={() => selectedRole(role)}>
                             {role.role_name.toUpperCase()} - {role.partner_name ? role.partner_name : role.site_name}
-                        </a>
+                        </Link>
                     </div>
                 )}
                 <div className="bg-slate-600 p-3 m-1 text-blue-50">
-                    <a href="/" onClick={logOut}>LOGOUT</a>
+                    <Link to="/" onClick={logOut}>LOGOUT</Link>
                 </div>
             </div>
         </div>

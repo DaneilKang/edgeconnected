@@ -67,30 +67,21 @@ function AddNewUser ({partners, setShowModal}) {
                         </select>
                     </div>
                     <div className={styles.name}>
-                        <div>
-                            <label htmlFor="first-name">First Name</label>
-                            <input ref={inputFirstName} type="text" id="first-name" placeholder="John"/>
-                        
-                            <label htmlFor="last-name">Last Name</label>
-                            <input ref={inputLastName} type="text" id="last-name" placeholder="Smith"/>
-                        </div>
-                        <div>
-                            <label htmlFor="email">Email</label>
-                            <input ref={inputEmail} id='email' type="email" placeholder="example@example.com"/>
-                        </div>
-                        <div>
-                            <label htmlFor="password">Password</label>
-                            <input ref={inputPassword} id='password' type="password" placeholder="********"/>
-                        </div>
-                        <div>
-                            <label htmlFor="phone">Phone</label>
-                            <input ref={inputPhone} id='phone' type="tel" placeholder="0412345678" />
-                        </div>
-                        <div>
-                            <input type="submit" value="Add User" onClick={onSubmit}/>
-                            <input type="button" onClick={()=>setShowModal(false)} value="CLOSE"/>
-                        </div>
+                        <div><label htmlFor="first-name">First Name</label></div>
+                        <div><input ref={inputFirstName} type="text" id="first-name" placeholder="John"/></div>
+                        <div><label htmlFor="last-name">Last Name</label></div>
+                        <div><input ref={inputLastName} type="text" id="last-name" placeholder="Smith"/></div>
+                        <div><label htmlFor="email">Email</label></div>
+                        <div><input ref={inputEmail} id='email' type="email" placeholder="example@example.com"/></div>
+                        <div><label htmlFor="password">Password</label></div>
+                        <div><input ref={inputPassword} id='password' type="password" placeholder="********"/></div>
+                        <div><label htmlFor="phone">Phone</label></div>
+                        <div><input ref={inputPhone} id='phone' type="tel" placeholder="0412345678" /></div>
                     </div>
+                </div>
+                <div className={styles.buttons}>
+                    <button onClick={onSubmit}>Add New User</button>
+                    <button onClick={()=>setShowModal(false)}>Close</button>
                 </div>
             </div>
         </form>

@@ -18,10 +18,10 @@
   .role {
       width: 100%;
   }
-  .name {
+  /* .name {
       width: 100%;
-  }
-  input, select {
+  } */
+  .name input, select {
       width: 100%;
       height: 40px;
       border: 1px solid #ccc;
@@ -34,4 +34,9 @@
       display: flex;
       flex-direction: column;
       text-align: left;
+      overflow: auto;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: row;
   }

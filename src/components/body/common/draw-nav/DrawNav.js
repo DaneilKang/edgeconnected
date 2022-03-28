@@ -32,23 +32,24 @@ export default function DrawNav () {
                                 <li><Link to="/residential-fleet">Residential Fleet</Link></li>
                                 <li id='list-title'>DEVICE MANAGEMENT</li>
                                 <li><Link to="/partner-management">Partner Management</Link></li>
-                                <li><a href='#' onClick={logoutClicked}>LOGOUT</a></li>                            
+                                <li><Link to="" onClick={logoutClicked}>LOGOUT</Link></li>
+                                {/* <li><a href='#' onClick={logoutClicked}>LOGOUT</a></li>                      */}
                             </ul>
                             : roleDetail.role_id === 3 ?
                                 <ul>
                                     <li id='list-title'>DEVICE MANAGEMENT</li>
                                     <li><Link to="/partner-management">Partner Management</Link></li>
-                                    <li><a href='#' onClick={logoutClicked}>LOGOUT</a></li>    
+                                    <li><Link to="" onClick={logoutClicked}>LOGOUT</Link></li>
                                 </ul>
                                 : roleDetail.role_id === 2 ?
                                     <ul>
                                         <li id='list-title'>FLEET VIEW</li>
                                         <li><Link to="/residential-fleet">Residential Fleet</Link></li>
-                                        <li><a href='#' onClick={logoutClicked}>LOGOUT</a></li>
+                                        <li><Link to="" onClick={logoutClicked}>LOGOUT</Link></li>
                                     </ul>
                                     :
                                     <ul>
-                                        <li><a href='#' onClick={logoutClicked}>LOGOUT</a></li>
+                                        <li><Link to="" onClick={logoutClicked}>LOGOUT</Link></li>
                                     </ul> 
                             )
                         : 
