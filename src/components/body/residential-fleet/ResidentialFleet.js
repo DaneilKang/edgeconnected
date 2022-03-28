@@ -4,7 +4,6 @@ import styles from "./ResidentialFleet.module.css";
 import { Audio } from 'react-loader-spinner';
 import Pagination from "../common/pagination/Pagination";
 import MapView from "../common/map-view/MapView";
-import { UserContext } from "../../context/UserContext";
 import AuthService from "../../../service/auth.service";
 
 import eiq_blue from "../../../assets/resi-edgeiq-blue.svg";
@@ -23,7 +22,6 @@ import solar_orange from "../../../assets/resi-solar-orange.svg";
 const baseURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-residential-fleet"
 
 function ResidentialFleet ({searchQuery}) {
-    const {logOut} = useContext(UserContext);
     const [lists, setLists] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [currentPagination, setCurrentPagination] = useState(1);
@@ -35,9 +33,9 @@ function ResidentialFleet ({searchQuery}) {
             setIsLoading(true);
             
             const USER_TOKEN = localStorage.getItem('jwtToken');
-            const USER_ROLE = localStorage.getItem('role');
+            const USER_ROLE = localStorage.getItem('role').replace(/\"/gi,'\'');
 
-            const res = await axios.get(`${baseURL}`, { headers: { "x-token": USER_TOKEN, "x-role": JSON.stringify(USER_ROLE) } });
+            const res = await axios.get(`${baseURL}`, { headers: { "x-token": USER_TOKEN, "x-role": USER_ROLE } });
             
             AuthService.getCurrentUserPermission(res.data.statusCode, res.data.message);
 
@@ -48,9 +46,6 @@ function ResidentialFleet ({searchQuery}) {
         fetchLists();
         
     },[]);
-
-    
-    // if(!currentUserRole || currentUserRole !== 1) return logOut();
 
     // filtered lists when filter input
     const filterList = (currentLists, query) => {
