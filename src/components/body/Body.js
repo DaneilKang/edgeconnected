@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './home/Home';
 import AddNewUser from './partner-management/add-new-user/AddNewUser';
 import LoginForm from '../login/LoginForm';
+import AddNewBusiness from './partner-management/add-new-business/AddNewBusiness';
 
 function Body () {
     
@@ -14,6 +15,7 @@ function Body () {
             <Routes>
                     <Route path='partner-management/*' element={<PartnerManagement/>}>
                         <Route path='add-new-user/*' element={<AddNewUser/>}/>
+                        <Route path='add-new-business/*' element={<AddNewBusiness/>}/>
                     </Route>
                     <Route path='residential-fleet/*' element={<ResidentialFleet/>}/>
                     <Route path='/*' element={<Home/>} />

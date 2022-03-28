@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ResidentialFleet.module.css";
 import { Audio } from 'react-loader-spinner';
 import Pagination from "../common/pagination/Pagination";
@@ -134,7 +134,7 @@ function ResidentialFleet ({searchQuery}) {
                     <tbody>
                     {
                         filteredLists.map((list,index) => (
-                            <tr key={index} className={styles.table_body}>
+                            <tr key={index} className={styles.table_body} onClick={()=>alert("clicked")}>
                                 <td className={styles.list_performance_check}>
                                     <input type="checkbox" name="performance-check" />
                                 </td>

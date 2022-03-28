@@ -47,7 +47,7 @@ const ModalBlock = styled.div`
         width: 80%;
     }
     min-height: 15rem;
-    animation: modal-show 0.5s;
+    animation: modal-show 0.3s;
     @keyframes modal-show {
         from {
             opacity: 0;
@@ -68,7 +68,7 @@ const Contents = styled.div`
 
 export class Modal extends Component {
   render() {
-    const { openClose, setShowModal } = this.props;
+    const { openClose } = this.props;
     
     // const close = () => {
     //     setShowModal(false)

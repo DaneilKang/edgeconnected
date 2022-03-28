@@ -9,10 +9,10 @@ function AddNewUser ({partners, setShowModal}) {
     const inputEmail = useRef(null);
     const inputPassword = useRef(null);
     const inputPhone = useRef(null);
-    const fake_roles = [{'role_id': 1, 'role_name': 'admin'},
-                        {'role_id': 2, 'role_name': 'user'},
-                        {'role_id': 3, 'role_name': 'installer'},
-                        {'role_id': 4, 'role_name': 'customer'}];
+    const fake_roles = [{'role_id': 1, 'role_name': 'Admin'},
+                        {'role_id': 2, 'role_name': 'User'},
+                        {'role_id': 3, 'role_name': 'Installer'},
+                        {'role_id': 4, 'role_name': 'Customer'}];
     const onSubmit = (e) => {
         e.preventDefault();
         const data = {
@@ -44,7 +44,7 @@ function AddNewUser ({partners, setShowModal}) {
         setShowModal(false);
     }
     return ( 
-        <form className={styles.form}>
+        <form>
             <div className={styles.container}>
                 <div className={styles.title}>Add New User</div>
                 <div className={styles.form}>
@@ -80,7 +80,7 @@ function AddNewUser ({partners, setShowModal}) {
                     </div>
                 </div>
                 <div className={styles.buttons}>
-                    <button className={styles.button} onClick={onSubmit}>Add New User</button>
+                    <button className={styles.button} onClick={onSubmit}>Add New</button>
                     <button className={styles.button} onClick={()=>setShowModal(false)}>Close</button>
                 </div>
             </div>
