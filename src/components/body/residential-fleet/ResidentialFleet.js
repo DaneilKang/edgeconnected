@@ -22,7 +22,7 @@ import solar_orange from "../../../assets/resi-solar-orange.svg";
 const baseURL = "https://u8gmw4ohr6.execute-api.ap-southeast-2.amazonaws.com/test/get-residential-fleet"
 
 function ResidentialFleet ({searchQuery}) {
-    const {currentUserRole, logOut} = useContext(UserContext);
+    const {logOut} = useContext(UserContext);
     const [lists, setLists] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [currentPagination, setCurrentPagination] = useState(1);
@@ -37,7 +37,12 @@ function ResidentialFleet ({searchQuery}) {
 
             const res = await axios.get(`${baseURL}`, { headers: { "x-token": USER_TOKEN } });
             
-            setLists(res.data.body);
+            if(res.data.statusCode !== 200) {
+                console.log(res.data.message);
+                alert(res.data.message);
+                return logOut();
+            }
+            setLists(res.data.body)
             setIsLoading(false);
         };
 
