@@ -96,13 +96,13 @@
   
   #page-content {
     margin-left: 0px;
-    margin-top: 50px;
+    margin-top: 0px;
     width: 100%;
     height: calc(100% - 50px);
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    padding: 20px;
+    padding: 12px;
   }
   
   /* checked styles (menu open state) */

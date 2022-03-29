@@ -39,7 +39,7 @@ const ModalBlock = styled.div`
     border: 1px solid #ccc;
     padding: 1.5rem;
     background-color: #fafafa;
-    width: 30rem;
+    width: 25rem;
     @media (max-width: 1120px) {
         width: 20rem;
     }

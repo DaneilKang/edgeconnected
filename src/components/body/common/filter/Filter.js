@@ -4,7 +4,7 @@ function Filter({setSearchQuery, searchQuery}) {
     
     return (
         <div>
-            <form>
+            <form style={{width:"100%"}}>
                 <input 
                     name="filter" 
                     placeholder="Filter *" 
