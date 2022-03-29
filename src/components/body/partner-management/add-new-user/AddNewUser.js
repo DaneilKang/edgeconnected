@@ -78,11 +78,12 @@ function AddNewUser ({partners, setShowModal}) {
                         <div><label htmlFor="phone">Phone</label></div>
                         <div><input ref={inputPhone} id='phone' type="tel" placeholder="0412345678" /></div>
                     </div>
+                    <div className={styles.buttons}>
+                        <button className={styles.button} onClick={onSubmit}>Add New</button>
+                        <button className={styles.button} onClick={()=>setShowModal(false)}>Close</button>
+                    </div>
                 </div>
-                <div className={styles.buttons}>
-                    <button className={styles.button} onClick={onSubmit}>Add New</button>
-                    <button className={styles.button} onClick={()=>setShowModal(false)}>Close</button>
-                </div>
+                
             </div>
         </form>
     );

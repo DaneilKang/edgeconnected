@@ -26,6 +26,10 @@
     margin-bottom: 3px;
 }
 
+form {
+    width: 100%;
+}
+
 .form {
     width: 22rem;
     height: 27rem;
@@ -53,4 +57,11 @@
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1120px) {
+    .form {
+      width: 100%;
+      margin-top: 0;
+    }
 }
